@@ -1,0 +1,11 @@
+:root{
+  --bg:#0c1219; --panel:#14202b; --panel2:#182635; --line:#33465c;
+  --txt:#e9eff5; --mut:#9db2c6; --dim:#6f87a0;
+  --green:#2fbf71; --amber:#f5a623; --red:#e63946;
+  --mono:ui-monospace,'SF Mono',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;line-height:1.5;font-size:14px}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:var(--mono)}

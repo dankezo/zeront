@@ -55,6 +55,17 @@ Publishing fresh vulnerability intel can help attackers as well as defenders. Ze
 
 This page gives attackers no target they did not already have. It gives defenders earlier warning and a sense of scale.
 
+## Browser extension
+
+`extension/` contains the Zeront Chrome/Edge extension (Manifest V3, v0.1.0):
+
+- **Popup:** fingerprints the current tab (server banner, generator meta, in-page technology traces) and evaluates it against the radar's tracked items - version-range matches and technology signals, with honest certainty notes.
+- **Your websites:** register your domains in the options page and grant per-domain permission; a daily background job re-checks them and badges the icon on a match. No admin passwords, no server access - public fingerprints only.
+- **Daily radar:** the feed refreshes every day; newly tracked flaws raise a notification.
+- No browsing-history collection; everything stays in the user's browser.
+
+Install: download `zeront-extension-v0.1.0.zip` from the [v0.1.0 release](https://github.com/dankezo/zeront/releases/tag/v0.1.0), unzip, then `chrome://extensions` → Developer mode → Load unpacked. Full guide: [extension.html](https://dankezo.github.io/zeront/extension.html). Build the zip yourself with `extension/build.sh`. A Chrome Web Store listing is in preparation (one-time US$5 developer registration).
+
 ## How it works
 
 ```

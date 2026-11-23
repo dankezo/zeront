@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Zeront - Web của bạn</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{padding:28px 20px}
+.wrap{max-width:680px;margin:0 auto}
+h1{font-size:1.3rem;letter-spacing:.1em}
+.sub{color:var(--mut);margin:6px 0 20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.card h2{font-size:.95rem;margin-bottom:8px}
+.card p{color:var(--mut);font-size:.88rem}
+form{display:flex;gap:8px;margin-top:12px}
+input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--txt);font:inherit;padding:10px 12px}
+button{background:var(--green);color:#06281a;border:0;font:inherit;font-weight:700;padding:10px 16px;border-radius:9px;cursor:pointer}
+button.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);font-weight:600}
+button.warn{background:transparent;color:#ff8f98;border:1px solid rgba(230,57,70,.5);font-weight:600}
+.site{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.site:last-child{border-bottom:0}
+.site .d{font-family:var(--mono);font-weight:700}
+.site .st{margin-left:auto;display:flex;gap:8px;align-items:center}
+.tag{font-size:.72rem;padding:2px 9px;border-radius:11px;border:1px solid var(--line);color:var(--mut)}
+.tag.on{border-color:rgba(47,191,113,.5);color:var(--green)}
+.tag.hit{border-color:rgba(230,57,70,.55);color:#ff8f98}
+.note{color:var(--dim);font-size:.8rem;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ZERONT</h1>
+  <p class="sub">Danh sách website của bạn. Zeront kiểm tra các trang này theo radar mỗi ngày - chỉ bằng dấu vết công khai, không cần mật khẩu hay quyền quản trị nào.</p>
+
+  <div class="card">
+    <h2>Thêm website</h2>
+    <p>Nhập tên miền (ví dụ: cuahangcuaban.vn). Sau khi thêm, bấm "Bật kiểm tra mỗi ngày" để cấp quyền cho Zeront tự đọc trang chủ của chính trang đó - quyền này chỉ áp dụng cho đúng tên miền bạn chọn và thu hồi được bất cứ lúc nào.</p>
+    <form id="addForm">
+      <input id="domain" type="text" placeholder="tenmiencuaban.vn" autocomplete="off">
+      <button type="submit">Thêm</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Website đã lưu</h2>
+    <div id="sites"><p>Chưa có website nào.</p></div>
+    <p class="note">Kiểm tra mỗi ngày chạy nền: tải trang chủ, đọc banner máy chủ và dấu vết công nghệ công khai, đối chiếu với các lỗi Zeront đang theo dõi. Có dấu hiệu dính lỗi, biểu tượng Zeront sẽ hiện số cảnh báo. Kết quả chi tiết nằm ở trang radar.</p>
+  </div>
+
+  <div class="card">
+    <h2>Dữ liệu và riêng tư</h2>
+    <p>Extension không thu thập lịch sử duyệt web, không gửi dữ liệu của bạn đi đâu. Danh sách website và kết quả kiểm tra chỉ nằm trong trình duyệt của bạn. Dữ liệu radar tải từ SecuScan là dữ liệu công khai, chỉ gồm số liệu tổng hợp.</p>
+  </div>
+</div>
+<script src="options.js"></script>
+</body>
+</html>

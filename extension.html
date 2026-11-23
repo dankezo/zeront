@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeront Extension - Hướng dẫn cài đặt | SecuScan</title>
+<meta name="description" content="Cài extension Zeront vào Chrome/Edge: canh lỗ hổng cho website của bạn theo radar Zeront, kiểm tra mỗi ngày, không cần mật khẩu quản trị.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1219;--panel:#14202b;--line:#33465c;--txt:#e9eff5;--mut:#9db2c6;--dim:#6f87a0;--green:#2fbf71;--amber:#f5a623;--red:#e63946;--mono:ui-monospace,Consolas,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.6}
+a{color:var(--green)}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+header{border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:13px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--txt);text-decoration:none}
+.mark{width:38px;height:38px;border-radius:50%;border:2px solid var(--green);position:relative;flex:none}
+.mark::before{content:'';position:absolute;inset:8px;border:1px solid rgba(47,191,113,.45);border-radius:50%}
+.mark::after{content:'';position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--green)}
+.brand b{letter-spacing:.14em;font-size:1.25rem}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{background:transparent;border:0;color:var(--mut);font:inherit;font-size:.82rem;padding:5px 11px;cursor:pointer}
+.lang button.on{background:var(--green);color:#06281a;font-weight:700}
+h1{font-size:2rem;line-height:1.2;margin:38px 0 10px}
+.sub{color:var(--mut);max-width:64ch}
+.dl{display:flex;gap:12px;margin:24px 0 6px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none}
+.btn.g{background:var(--green);color:#06281a}
+.btn.o{border:1px solid var(--line);color:var(--txt)}
+.ver{font-family:var(--mono);color:var(--dim);font-size:.82rem}
+.steps{margin:30px 0;display:flex;flex-direction:column;gap:12px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:44px 1fr;gap:16px}
+.step .n{width:36px;height:36px;border-radius:50%;border:1px solid var(--green);color:var(--green);font-family:var(--mono);font-weight:700;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:1rem;margin-bottom:4px}
+.step p{color:var(--mut);font-size:.92rem}
+.step code{font-family:var(--mono);background:#0a0f16;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:.85em;color:#ffc65c}
+.note{border:1px solid rgba(245,166,35,.45);background:rgba(245,166,35,.07);border-radius:14px;padding:16px 20px;color:#f3ddba;font-size:.92rem;margin:22px 0}
+h2{font-size:1.25rem;margin:30px 0 10px}
+ul{margin:0 0 0 20px;color:var(--mut)}
+li{margin-bottom:6px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 36px;color:var(--dim);font-size:.87rem}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a class="brand" href="./"><span class="mark"></span><b>ZERONT</b></a>
+  <span class="lang"><button id="lv" class="on">VI</button><button id="le">EN</button></span>
+</div></header>
+
+<div class="wrap">
+  <h1 data-vi="Extension Zeront - canh lỗ hổng ngay trong trình duyệt" data-en="Zeront extension - vulnerability watch inside your browser">Extension Zeront - canh lỗ hổng ngay trong trình duyệt</h1>
+  <p class="sub" data-vi="Extension đọc dữ liệu radar Zeront mỗi ngày, đối chiếu với dấu vết công khai của trang bạn đang mở và của các website bạn đăng ký. Không cần cài lên máy chủ, không cần đưa mật khẩu quản trị cho ai." data-en="The extension reads the Zeront radar daily and cross-checks the public fingerprints of the page you are viewing and of the websites you register. Nothing to install on a server, no admin password shared with anyone.">Extension đọc dữ liệu radar Zeront mỗi ngày, đối chiếu với dấu vết công khai của trang bạn đang mở và của các website bạn đăng ký. Không cần cài lên máy chủ, không cần đưa mật khẩu quản trị cho ai.</p>
+  <div class="dl">
+    <a class="btn g" href="https://github.com/dankezo/zeront/releases/download/v0.1.0/zeront-extension-v0.1.0.zip" data-vi="Tải extension (.zip)" data-en="Download the extension (.zip)">Tải extension (.zip)</a>
+    <a class="btn o" href="./" data-vi="Quay lại radar" data-en="Back to the radar">Quay lại radar</a>
+  </div>
+  <div class="ver">v0.1.0 · Chrome / Edge / Brave · <span data-vi="bản Web Store đang được chuẩn bị" data-en="Web Store listing in preparation">bản Web Store đang được chuẩn bị</span></div>
+
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div>
+      <h3 data-vi="Tải và giải nén" data-en="Download and unzip">Tải và giải nén</h3>
+      <p data-vi="Bấm nút tải ở trên, được một file .zip. Giải nén ra một thư mục cố định trên máy (đừng xóa thư mục này sau khi cài, trình duyệt cần nó để chạy extension)." data-en="Download the .zip above and unzip it into a permanent folder (do not delete that folder afterwards - the browser needs it to run the extension).">Bấm nút tải ở trên, được một file .zip. Giải nén ra một thư mục cố định trên máy (đừng xóa thư mục này sau khi cài, trình duyệt cần nó để chạy extension).</p>
+    </div></div>
+    <div class="step"><div class="n">2</div><div>
+      <h3 data-vi="Mở trang quản lý extension" data-en="Open the extensions page">Mở trang quản lý extension</h3>
+      <p data-vi="Trên Chrome/Edge, gõ vào thanh địa chỉ:" data-en="In Chrome/Edge, type in the address bar:">Trên Chrome/Edge, gõ vào thanh địa chỉ: <code>chrome://extensions</code></p>
+    </div></div>
+    <div class="step"><div class="n">3</div><div>
+      <h3 data-vi="Bật chế độ nhà phát triển" data-en="Turn on Developer mode">Bật chế độ nhà phát triển</h3>
+      <p data-vi="Gạt công tắc 'Chế độ dành cho nhà phát triển' (Developer mode) ở góc phải trên của trang." data-en="Toggle 'Developer mode' in the top-right corner of the page.">Gạt công tắc 'Chế độ dành cho nhà phát triển' (Developer mode) ở góc phải trên của trang.</p>
+    </div></div>
+    <div class="step"><div class="n">4</div><div>
+      <h3 data-vi="Nạp thư mục đã giải nén" data-en="Load the unzipped folder">Nạp thư mục đã giải nén</h3>
+      <p data-vi="Bấm 'Tải tiện ích đã giải nén' (Load unpacked) rồi chọn thư mục vừa giải nén ở bước 1. Zeront xuất hiện trong danh sách - ghim biểu tượng radar lên thanh công cụ cho tiện." data-en="Click 'Load unpacked' and select the folder from step 1. Zeront appears in the list - pin the radar icon to your toolbar.">Bấm 'Tải tiện ích đã giải nén' (Load unpacked) rồi chọn thư mục vừa giải nén ở bước 1. Zeront xuất hiện trong danh sách - ghim biểu tượng radar lên thanh công cụ cho tiện.</p>
+    </div></div>
+    <div class="step"><div class="n">5</div><div>
+      <h3 data-vi="Đăng ký website của bạn" data-en="Register your websites">Đăng ký website của bạn</h3>
+      <p data-vi="Bấm biểu tượng Zeront, chọn 'Web của bạn', thêm tên miền và bật kiểm tra mỗi ngày cho từng trang. Từ mai, Zeront tự đối chiếu mỗi ngày và chỉ lên tiếng khi có dấu hiệu dính lỗi." data-en="Click the Zeront icon, choose 'Your websites', add your domains and enable the daily check for each. From tomorrow, Zeront cross-checks daily and only speaks up when a flaw matches.">Bấm biểu tượng Zeront, chọn 'Web của bạn', thêm tên miền và bật kiểm tra mỗi ngày cho từng trang. Từ mai, Zeront tự đối chiếu mỗi ngày và chỉ lên tiếng khi có dấu hiệu dính lỗi.</p>
+    </div></div>
+  </div>
+
+  <div class="note"><b data-vi="Nói thẳng về giới hạn:" data-en="Straight talk about limits:">Nói thẳng về giới hạn:</b> <span data-vi="extension chỉ nhìn được dấu vết công khai từ bên ngoài (banner máy chủ, dấu vết công nghệ trong trang). Kết quả 'trong dải phiên bản dính lỗi' là dấu hiệu cần kiểm tra thêm, chưa phải bằng chứng trang bị khai thác được - và các lỗi tầng hạ tầng (máy chủ, PHP) nằm ngoài tầm của extension. Muốn quét sâu và có bằng chứng rõ ràng, dùng SecuScan." data-en="the extension only sees public fingerprints from outside (server banner, in-page technology traces). A 'version range match' is a signal to check further, not proof of exploitability - and infrastructure-layer flaws (server, PHP) are beyond an extension's reach. For deep scans with solid evidence, use SecuScan.">extension chỉ nhìn được dấu vết công khai từ bên ngoài (banner máy chủ, dấu vết công nghệ trong trang). Kết quả 'trong dải phiên bản dính lỗi' là dấu hiệu cần kiểm tra thêm, chưa phải bằng chứng trang bị khai thác được - và các lỗi tầng hạ tầng (máy chủ, PHP) nằm ngoài tầm của extension. Muốn quét sâu và có bằng chứng rõ ràng, dùng SecuScan.</span></div>
+
+  <h2 data-vi="Extension làm gì mỗi ngày" data-en="What the extension does daily">Extension làm gì mỗi ngày</h2>
+  <ul>
+    <li data-vi="Tải dữ liệu radar mới nhất (CISA KEV + các lỗi đang theo dõi tại Việt Nam) - bằng code đối chiếu luật cứng, không tốn token AI." data-en="Fetches the latest radar data (CISA KEV + flaws tracked in Vietnam) - deterministic rule matching, zero AI tokens.">Tải dữ liệu radar mới nhất (CISA KEV + các lỗi đang theo dõi tại Việt Nam) - bằng code đối chiếu luật cứng, không tốn token AI.</li>
+    <li data-vi="Có lỗi mới lọt diện theo dõi: hiện thông báo." data-en="A newly tracked flaw appears: you get a notification.">Có lỗi mới lọt diện theo dõi: hiện thông báo.</li>
+    <li data-vi="Tự kiểm tra các website bạn đã cấp quyền; có dấu hiệu dính lỗi, biểu tượng Zeront hiện số cảnh báo màu đỏ." data-en="Re-checks the websites you permitted; on a match, the Zeront icon shows a red badge count.">Tự kiểm tra các website bạn đã cấp quyền; có dấu hiệu dính lỗi, biểu tượng Zeront hiện số cảnh báo màu đỏ.</li>
+    <li data-vi="Không thu thập lịch sử duyệt web, không gửi dữ liệu của bạn đi đâu - mọi thứ nằm trong trình duyệt của bạn." data-en="No browsing-history collection, nothing of yours is sent anywhere - everything stays in your browser.">Không thu thập lịch sử duyệt web, không gửi dữ liệu của bạn đi đâu - mọi thứ nằm trong trình duyệt của bạn.</li>
+  </ul>
+
+  <footer>ZERONT - <span data-vi="một sản phẩm của" data-en="a product by">một sản phẩm của</span> <a href="https://secuscan.dannyphan.me/">SecuScan</a> · <a href="https://github.com/dankezo/zeront">GitHub</a> · <a href="feed.json">feed.json</a></footer>
+</div>
+<script>
+function setLang(l){
+  document.getElementById('lv').classList.toggle('on', l==='vi');
+  document.getElementById('le').classList.toggle('on', l==='en');
+  document.querySelectorAll('[data-vi]').forEach(function(el){ el.innerHTML = l==='vi' ? el.dataset.vi : el.dataset.en; });
+  document.documentElement.lang = l;
+}
+document.getElementById('lv').addEventListener('click', function(){ setLang('vi'); });
+document.getElementById('le').addEventListener('click', function(){ setLang('en'); });
+</script>
+</body>
+</html>

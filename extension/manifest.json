@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Zeront - Vulnerability Radar",
+  "version": "0.1.0",
+  "description": "Canh lỗ hổng bảo mật cho website của bạn theo radar Zeront của SecuScan: đối chiếu phiên bản trang đang mở, nhận tin lỗi mới mỗi ngày. Aggregates only - no tracking.",
+  "permissions": ["storage", "alarms", "notifications", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://secuscan.dannyphan.me/*",
+    "https://dankezo.github.io/*"
+  ],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": { "service_worker": "src/background.js" },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Zeront - kiểm tra trang này",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "options_page": "src/options.html",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

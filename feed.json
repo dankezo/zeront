@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T03:00:05Z",
+ "generated_at": "2026-11-23T03:12:11Z",
  "generator": "zeront (by SecuScan)",
  "kev_source": "live",
  "kev_catalog_released": "2026-11-20T17:48:39.1516Z",
@@ -32,7 +32,18 @@
    "tracked_since": "2026-11-19",
    "links": [
     "https://nginx.org/en/security_advisories.html"
-   ]
+   ],
+   "match": {
+    "type": "server-version",
+    "product": "nginx",
+    "affected_range": ">=1.9.5 <=1.31.8",
+    "patched_versions": [
+     "1.30.7"
+    ],
+    "certainty": "version-match",
+    "note_vi": "Khớp dải phiên bản từ banner máy chủ. Lỗi chỉ khai thác được khi bật HTTP/2 - cần kiểm tra thêm, chưa phải kết luận chắc chắn.",
+    "note_en": "Version-range match from the server banner. The flaw also needs HTTP/2 enabled - treat as needs-checking, not a confirmed verdict."
+   }
   },
   {
    "id": "react-rsc-rce",
@@ -52,7 +63,20 @@
    "tracked_since": "2026-11-23",
    "links": [
     "https://nvd.nist.gov/vuln/detail/CVE-2026-126187"
-   ]
+   ],
+   "match": {
+    "type": "page-signal",
+    "product": "React Server Components",
+    "signals": [
+     "/_next/",
+     "react-server-dom",
+     "__next_f"
+    ],
+    "affected_range": "React 19.0.0 to <19.0.9 / <19.1.10 / <19.2.9 / <19.3.1 (react-server-dom-*)",
+    "certainty": "signal-only",
+    "note_vi": "Chỉ phát hiện dấu hiệu dùng React Server Components từ bên ngoài; phiên bản gói cụ thể phải kiểm tra trong mã nguồn dự án.",
+    "note_en": "Only the use of React Server Components is detectable from outside; the exact package version must be checked in the project source."
+   }
   }
  ],
  "kev_recent": [

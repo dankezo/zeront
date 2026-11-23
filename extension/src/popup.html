@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<style>
+body{width:384px;padding:16px}
+.hd{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.hd img{width:30px;height:30px}
+.hd b{letter-spacing:.14em;font-size:1.05rem}
+.hd small{display:block;color:var(--mut);font-size:.72rem;letter-spacing:0}
+.hd .radar{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--dim);text-align:right}
+.sec{margin-top:14px}
+.sec h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:8px}
+.host{font-family:var(--mono);font-size:.92rem;color:#ffc65c;word-break:break-all}
+.verdict{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;background:var(--panel)}
+.verdict .t{font-weight:700;font-size:.9rem}
+.verdict .e{font-family:var(--mono);font-size:.74rem;color:var(--mut);margin-top:2px;word-break:break-all}
+.verdict .n{font-size:.8rem;color:var(--mut);margin-top:5px}
+.verdict.match{border-color:rgba(230,57,70,.55);background:rgba(230,57,70,.08)}
+.verdict.match .t{color:#ff8f98}
+.verdict.signal{border-color:rgba(245,166,35,.55);background:rgba(245,166,35,.07)}
+.verdict.signal .t{color:var(--amber)}
+.verdict.ok{border-color:rgba(47,191,113,.45);background:rgba(47,191,113,.06)}
+.verdict.ok .t{color:var(--green)}
+.fp{font-size:.82rem;color:var(--mut);margin-top:8px}
+.fp b{color:var(--txt);font-weight:600}
+.news{display:flex;flex-direction:column;gap:7px}
+.news a{display:flex;gap:9px;color:var(--txt);font-size:.83rem;align-items:baseline}
+.news a:hover{text-decoration:none;color:#fff}
+.news .d{font-family:var(--mono);color:var(--dim);font-size:.72rem;flex:none}
+.news .c{font-family:var(--mono);color:#ffc65c;font-weight:700;flex:none}
+.foot{display:flex;gap:8px;margin-top:16px}
+.foot a{flex:1;text-align:center;padding:9px 6px;border:1px solid var(--line);border-radius:9px;color:var(--txt);font-size:.83rem;font-weight:600}
+.foot a.g{background:var(--green);color:#06281a;border-color:var(--green)}
+.dim{color:var(--dim);font-size:.78rem;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="hd">
+  <img src="../icons/icon48.png" alt="">
+  <div><b>ZERONT</b><small>Radar lỗ hổng - by SecuScan</small></div>
+  <div class="radar" id="feedAt">...</div>
+</div>
+
+<div class="sec">
+  <h2>Trang đang mở</h2>
+  <div class="host" id="host">Đang đọc trang...</div>
+  <div id="verdicts"></div>
+  <div class="fp" id="fp"></div>
+</div>
+
+<div class="sec">
+  <h2>Lỗi mới đang bị khai thác (KEV)</h2>
+  <div class="news" id="news"></div>
+</div>
+
+<div class="foot">
+  <a class="g" href="https://secuscan.dannyphan.me/radar/" target="_blank" rel="noopener">Mở radar đầy đủ</a>
+  <a href="#" id="optLink">Web của bạn</a>
+</div>
+<div class="dim">Zeront chỉ đối chiếu dấu vết công khai của trang. Kết luận "trong dải phiên bản" chưa phải bằng chứng khai thác được - trang radar có hướng dẫn kiểm chứng.</div>
+<script src="match.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
