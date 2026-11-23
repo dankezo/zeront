@@ -45,9 +45,9 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba
 .lang button.on{background:var(--green);color:#06281a;font-weight:700}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:center;padding:52px 0 40px}
+.hero{display:grid;grid-template-columns:1.55fr auto;gap:34px;align-items:center;padding:30px 0 20px}
 .kick{color:var(--green);font-family:var(--mono);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
-.hero h1{font-size:2.65rem;line-height:1.14;font-weight:800;margin:12px 0 14px}
+.hero h1{font-size:2rem;line-height:1.18;font-weight:800;margin:10px 0 10px}
 .hero h1 .hl{color:var(--green)}
 .hero p.sub{color:var(--mut);font-size:1.06rem;max-width:56ch}
 .upd{margin-top:16px;color:var(--dim);font-size:.85rem;font-family:var(--mono)}
@@ -57,7 +57,7 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba
 .btn.o{border:1px solid var(--line);color:var(--txt)}
 .btn:hover{text-decoration:none;filter:brightness(1.08)}
 .radarbox{display:flex;justify-content:center}
-.radar{width:250px;height:250px;border-radius:50%;border:1px solid var(--line);position:relative;background:
+.radar{width:132px;height:132px;border-radius:50%;border:1px solid var(--line);position:relative;background:
   radial-gradient(circle,transparent 31%,rgba(51,70,92,.55) 31.5%,transparent 32.5%),
   radial-gradient(circle,transparent 57%,rgba(51,70,92,.55) 57.5%,transparent 58.5%),
   radial-gradient(circle,rgba(47,191,113,.05),transparent 70%);overflow:hidden}
@@ -72,10 +72,10 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba
 @media (prefers-reduced-motion:reduce){.sweep,.blip{animation:none}}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:6px 0 8px}
-.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px 16px}
-.stat .n{font-family:var(--mono);font-size:1.9rem;font-weight:700;line-height:1.1}
-.stat .l{color:var(--mut);font-size:.86rem;margin-top:6px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;padding:4px 0 6px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 14px;display:flex;align-items:baseline;gap:9px}
+.stat .n{font-family:var(--mono);font-size:1.22rem;font-weight:700;line-height:1}
+.stat .l{color:var(--mut);font-size:.83rem}
 .stat.hot .n{color:var(--red)} .stat.warn .n{color:var(--amber)} .stat.ok .n{color:var(--green)}
 
 /* sections */
@@ -85,7 +85,7 @@ h2{font-size:1.55rem;font-weight:800;margin-bottom:6px}
 
 /* featured cards */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:1.5fr .9fr;gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;grid-template-columns:1.5fr .9fr;gap:20px}
 .sev{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(230,57,70,.16);color:#ff8f98;border:1px solid rgba(230,57,70,.4)}
 .card h3{font-size:1.16rem;line-height:1.35;margin:10px 0 8px}
 .cves{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
@@ -103,16 +103,37 @@ h2{font-size:1.55rem;font-weight:800;margin-bottom:6px}
 .controls input{flex:1;min-width:210px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--txt);font:inherit;font-size:.93rem;padding:10px 14px}
 .chip{border:1px solid var(--line);background:transparent;color:var(--mut);font:inherit;font-size:.85rem;padding:8px 14px;border-radius:20px;cursor:pointer}
 .chip.on{background:var(--green);color:#06281a;border-color:var(--green);font-weight:700}
-.rows{display:flex;flex-direction:column;gap:8px}
+.rows{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.thead{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:16px;padding:10px 18px;background:var(--panel2);border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;color:var(--dim);font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 .thead span{white-space:nowrap}
-.thead{display:grid;grid-template-columns:108px 148px minmax(0,1fr) auto;gap:16px;padding:0 18px 8px;color:var(--dim);font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
-.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 18px;display:grid;grid-template-columns:108px 148px minmax(0,1fr) auto;gap:16px;align-items:center}
-.row .date{font-family:var(--mono);color:var(--dim);font-size:.83rem;white-space:nowrap}
-.row .cid{font-family:var(--mono);font-weight:700;color:#ffc65c;font-size:.93rem;white-space:nowrap;text-decoration:none}
+.thead + .rows{border-radius:0 0 12px 12px}
+.row{padding:12px 18px;display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:16px;align-items:center;border-top:1px solid var(--line);cursor:pointer}
+.row:first-child{border-top:0}
+.row:hover{background:rgba(47,191,113,.03)}
+.row.rw{box-shadow:inset 3px 0 0 var(--red)}
+.urg{min-width:0}
+.urg .d{font-family:var(--mono);font-weight:700;font-size:.95rem;white-space:nowrap;color:var(--mut)}
+.urg .t{font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:2px;white-space:nowrap}
+.urg.over .d{color:#ff8f98}
+.urg.soon .d{color:var(--amber)}
+.row .main{min-width:0}
+.row .idrow{display:flex;gap:10px;align-items:baseline}
+.row .cid{font-family:var(--mono);font-weight:700;color:#ffc65c;font-size:.86rem;white-space:nowrap;text-decoration:none}
 .row .cid:hover{text-decoration:underline}
-.row .name{color:var(--txt);font-size:.94rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.row .name .ven{color:var(--mut)}
+.row .rel{color:var(--dim);font-size:.78rem;white-space:nowrap}
+.row .name{color:var(--txt);font-size:.96rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;margin-top:1px}
+.row .name .ven{color:var(--mut);font-weight:400}
 .row .meta{text-align:right;font-size:.8rem;color:var(--mut);display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:nowrap}
+.chev{color:var(--dim);font-size:.8rem;transition:transform .18s}
+.row.open .chev{transform:rotate(180deg)}
+.row .det{display:none;grid-column:1/-1;border-top:1px dashed var(--line);padding:12px 0 4px;cursor:default}
+.row.open .det{display:block}
+.row .det p{color:var(--mut);font-size:.9rem;max-width:88ch}
+.row .det .why{margin-top:8px;color:#f3ddba;font-size:.86rem}
+.row .det .acts{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+.srcbtn{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.83rem;color:var(--txt)}
+.srcbtn:hover{border-color:var(--green);text-decoration:none}
+.count{color:var(--dim);font-size:.83rem;font-family:var(--mono);margin:0 0 10px}
 .cardmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
 .tchip{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:12px;border:1px solid var(--line);color:var(--mut);background:var(--panel2)}
 a.tchip{color:var(--green);border-color:rgba(47,191,113,.45);text-decoration:none}
@@ -154,7 +175,7 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
 
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;padding-top:36px}
-  .radarbox{order:-1}.radar{width:180px;height:180px}
+  .radarbox{order:-1}.radar{width:104px;height:104px}
   .hero h1{font-size:2rem}
   .stats{grid-template-columns:1fr 1fr}
   .cards{grid-template-columns:1fr}
@@ -162,11 +183,13 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
   .card .side{border-left:0;border-top:1px solid var(--line);padding:14px 0 0}
   .agent{grid-template-columns:1fr}
   .thead{display:none}
-  .row{grid-template-columns:1fr auto;grid-template-areas:'cid meta' 'name name' 'date date';row-gap:5px}
-  .row .cid{grid-area:cid}
-  .row .meta{grid-area:meta}
-  .row .date{grid-area:date}
-  .row .name{grid-area:name;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .row{grid-template-columns:102px minmax(0,1fr);grid-template-areas:'urg main' 'urg meta' 'det det';row-gap:5px}
+  .row .urg{grid-area:urg}
+  .row .main{grid-area:main}
+  .row .meta{grid-area:meta;justify-content:flex-start}
+  .row .det{grid-area:det}
+  .row .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .urg .d{font-size:.85rem}
   .svc{flex-direction:column;align-items:flex-start}
   .hd nav a{display:none}
   .hd nav{gap:0}
@@ -221,7 +244,8 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
       <button class="chip" data-f="week" data-vi="7 ngày qua" data-en="Last 7 days">7 ngày qua</button>
       <button class="chip" data-f="rw" data-vi="Dính mã độc tống tiền" data-en="Ransomware-linked">Dính mã độc tống tiền</button>
     </div>
-    <div class="thead"><span data-vi="Ngày vào KEV" data-en="Date added">Ngày vào KEV</span><span data-vi="Mã CVE" data-en="CVE id">Mã CVE</span><span data-vi="Lỗ hổng" data-en="Vulnerability">Lỗ hổng</span><span data-vi="Ghi chú" data-en="Notes">Ghi chú</span></div>
+    <div class="count" id="count"></div>
+    <div class="thead"><span data-vi="Hạn vá CISA" data-en="CISA due">Hạn vá CISA</span><span data-vi="Lỗ hổng" data-en="Vulnerability">Lỗ hổng</span><span data-vi="Ghi chú" data-en="Notes">Ghi chú</span></div>
     <div class="rows" id="rows"></div>
   </section>
 
@@ -301,13 +325,13 @@ var T = {
     ['kev_total','Lỗ hổng đã bị khai thác thật, toàn cầu (danh mục KEV)',''],
     ['kev_new_this_week','Lỗ hổng mới lọt danh mục KEV trong 7 ngày qua','warn'],
     ['warnings_sent','Cảnh báo đã gửi tận tay chủ trang bị ảnh hưởng','ok']],
-    due:'Hạn vá (CISA)', rw:'Mã độc tống tiền', empty:'Không có mục nào khớp bộ lọc.', ph:'Tìm theo mã CVE, hãng, sản phẩm...', since:'Theo dõi từ', check:'Kiểm tra web của bạn'},
+    due:'Hạn vá (CISA)', rw:'Mã độc tống tiền', empty:'Không có mục nào khớp bộ lọc.', ph:'Tìm theo mã CVE, hãng, sản phẩm...', since:'Theo dõi từ', check:'Kiểm tra web của bạn', why:'Vì sao có trong danh sách: CISA xác nhận lỗ hổng này đã bị khai thác thật ngoài đời - không phải lỗi lý thuyết.', src:'Hồ sơ CVE đầy đủ', cnt:'{n} lỗ hổng đang hiển thị', dueT:'Hạn vá'},
   en:{upd:'Updated', tracked:'verified affected websites in Vietnam', fix:'Fix:', stats:[
     ['sites_tracked_vn','Websites tracked by SecuScan in Vietnam',''],
     ['kev_total','Vulnerabilities exploited in the wild, worldwide (KEV catalog)',''],
     ['kev_new_this_week','New KEV additions in the last 7 days','warn'],
     ['warnings_sent','Warnings delivered to affected site owners','ok']],
-    due:'CISA due date', rw:'Ransomware', empty:'No entries match this filter.', ph:'Search by CVE id, vendor, product...', since:'Tracked since', check:'Check your website'}
+    due:'CISA due date', rw:'Ransomware', empty:'No entries match this filter.', ph:'Search by CVE id, vendor, product...', since:'Tracked since', check:'Check your website', why:'Why it is listed: CISA has confirmed this flaw is exploited in the wild - not a theoretical issue.', src:'Full CVE record', cnt:'Showing {n} flaws', dueT:'Due'}
 };
 function renderStats(){
   document.getElementById('stats').innerHTML = T[lang].stats.map(function(s){
@@ -338,14 +362,43 @@ function renderRows(){
     if(query){ var hay=(v.cve+' '+v.vendor+' '+v.product+' '+v.name).toLowerCase(); if(hay.indexOf(query)<0) return false; }
     return true;
   });
+  document.getElementById('count').textContent = T[lang].cnt.replace('{n}', list.length);
   document.getElementById('rows').innerHTML = list.length ? list.map(function(v){
     var rw = v.ransomware==='Known' ? '<span class="bdg rw">'+T[lang].rw+'</span>' : '';
     var full = v.vendor+' '+v.product+' - '+v.name;
-    return '<div class="row"><span class="date">'+v.added+'</span><a class="cid" href="'+v.link+'" target="_blank" rel="noopener">'+v.cve+'</a>'
-      + '<span class="name" title="'+full.replace(/"/g,'&quot;')+'"><span class="ven">'+v.vendor+' '+v.product+'</span> - '+v.name+'</span>'
-      + '<span class="meta">'+rw+'<span class="bdg due">'+T[lang].due+': '+v.due+'</span></span></div>';
+    var u = dueInfo(v.due);
+    var desc = esc(v.desc || ''); if((v.desc || '').length >= 248) desc += '…';
+    return '<div class="row'+(v.ransomware==='Known'?' rw':'')+'"><span class="urg '+u.cls+'"><span class="d">'+u.big+'</span><div class="t">'+T[lang].dueT+' '+u.dm+'</div></span>'
+      + '<span class="main"><span class="idrow"><a class="cid" href="'+v.link+'" target="_blank" rel="noopener">'+v.cve+'</a><span class="rel">'+relTime(v.added)+'</span></span>'
+      + '<div class="name" title="'+esc(full)+'"><span class="ven">'+esc(v.vendor+' '+v.product)+'</span> - '+esc(v.name)+'</div></span>'
+      + '<span class="meta">'+rw+'<span class="chev">▾</span></span>'
+      + '<span class="det"><p>'+desc+'</p><p class="why">'+T[lang].why+'</p>'
+      + '<div class="acts"><a class="srcbtn" href="'+v.link+'" target="_blank" rel="noopener">'+T[lang].src+' ↗</a><span class="bdg due">'+T[lang].due+': '+v.due+'</span></div></span></div>';
   }).join('') : '<div class="empty">'+T[lang].empty+'</div>';
 }
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function dayDiff(iso){ var t = new Date(); var today = Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()); var p = iso.split('-'); var d = Date.UTC(+p[0], +p[1]-1, +p[2]); return Math.round((d - today)/864e5); }
+function relTime(iso){
+  var n = -dayDiff(iso);
+  if(n <= 0) return lang==='vi' ? 'hôm nay' : 'today';
+  if(n === 1) return lang==='vi' ? 'hôm qua' : 'yesterday';
+  if(n <= 30) return lang==='vi' ? n+' ngày trước' : n+' days ago';
+  var p = iso.split('-'); return p[2]+'/'+p[1]+'/'+p[0];
+}
+function dueInfo(iso){
+  var days = dayDiff(iso); var p = iso.split('-'); var dm = p[2]+'/'+p[1];
+  if(days < 0) return { big: lang==='vi' ? 'Quá hạn' : 'Overdue', cls: 'over', dm: dm };
+  if(days === 0) return { big: lang==='vi' ? 'Hôm nay' : 'Due today', cls: 'over', dm: dm };
+  if(days <= 3) return { big: lang==='vi' ? 'Còn '+days+' ngày' : days+'d left', cls: 'soon', dm: dm };
+  return { big: lang==='vi' ? 'Còn '+days+' ngày' : days+'d left', cls: '', dm: dm };
+}
+document.getElementById('rows').addEventListener('click', function(e){
+  if(e.target.closest('a')) return;
+  var row = e.target.closest('.row'); if(!row) return;
+  var was = row.classList.contains('open');
+  document.querySelectorAll('#rows .row.open').forEach(function(r){ r.classList.remove('open'); });
+  if(!was) row.classList.add('open');
+});
 function renderUpd(){
   var g = (D.generated_at||'').replace('T',' ').replace('Z',' UTC');
   document.getElementById('upd').textContent = T[lang].upd + ' ' + g + ' · CISA KEV + SecuScan';
