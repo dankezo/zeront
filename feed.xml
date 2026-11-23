@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+ <title>Zeront - Vulnerability Radar by SecuScan</title>
+ <link>https://secuscan.dannyphan.me/radar/</link>
+ <description>New exploited vulnerabilities (CISA KEV), tracked flaws in Vietnam with aggregate impact figures, and fixes. Aggregates only - individual websites are never named.</description>
+ <language>vi</language>
+ <lastBuildDate>Mon, 23 Nov 2026 03:00:05 +0000</lastBuildDate>
+  <item>
+   <title>[Tracked in Vietnam] CVE-2026-123007 - nginx HTTP/2 - 'nginx2root' privilege escalation</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123007</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123007</guid>
+   <pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
+   <description>nginx 1.9.5 to 1.31.8 with HTTP/2 enabled Fix: Upgrade nginx to 1.30.7 or later, or disable HTTP/2. Confirmed affected sites in Vietnam (aggregate): 830.</description>
+  </item>
+  <item>
+   <title>[Tracked in Vietnam] CVE-2026-123633 - nginx HTTP/2 - 'nginx2root' privilege escalation</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123633</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123633</guid>
+   <pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
+   <description>nginx 1.9.5 to 1.31.8 with HTTP/2 enabled Fix: Upgrade nginx to 1.30.7 or later, or disable HTTP/2. Confirmed affected sites in Vietnam (aggregate): 830.</description>
+  </item>
+  <item>
+   <title>[Tracked in Vietnam] CVE-2026-126187 - React Server Components - unauthenticated remote code execution</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-126187</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-126187</guid>
+   <pubDate>Mon, 23 Nov 2026 00:00:00 +0000</pubDate>
+   <description>react-server-dom-webpack / parcel / turbopack on React 19.0.0 before fixes 19.0.9, 19.1.10, 19.2.9, 19.3.1 Fix: Upgrade the react-server-dom-* packages to the fixed release for your React branch. Confirmed affected sites in Vietnam (aggregate): 10.</description>
+  </item>
+  <item>
+   <title>CVE-2026-129448 - Apache Roller: Apache Roller Deserialization of Untrusted Data Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-129448</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-129448</guid>
+   <pubDate>Fri, 20 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Apache Roller contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via the XML-RPC endpoint, which accepts and deserializes vendor extension types before authent</description>
+  </item>
+  <item>
+   <title>CVE-2026-123890 - Broadcom VMware vCenter: VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123890</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123890</guid>
+   <pubDate>Fri, 20 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Broadcom VMware vCenter contains an authentication bypass using an alternate path or channel vulnerability in the VMware Directory Service that allows an unauthenticated attacker with network access to vCenter to bypass authentication and g</description>
+  </item>
+  <item>
+   <title>CVE-2025-42884 - SAP NetWeaver: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2025-42884</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2025-42884</guid>
+   <pubDate>Fri, 20 Nov 2026 00:00:00 +0000</pubDate>
+   <description>SAP NetWeaver Enterprise Portal contains an improper neutralization of special elements in data query logic vulnerability that allows an unauthenticated attacker to disclose or modify server information via injected JNDI environment propert</description>
+  </item>
+  <item>
+   <title>CVE-2026-76466 - Cisco Expressway Series: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-76466</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-76466</guid>
+   <pubDate>Fri, 20 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Cisco Expressway Series contains a use of hard-coded credentials vulnerability that allows an unauthenticated, remote attacker with persistent cookies and network access to execute commands as root on a clustered device via the database ser</description>
+  </item>
+  <item>
+   <title>CVE-2024-10441 - Synology DiskStation Manager (DSM): Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2024-10441</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2024-10441</guid>
+   <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Synology DSM contains an improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) that could allow a remote attacker to execute arbitrary code via unspecified vectors.</description>
+  </item>
+  <item>
+   <title>CVE-2026-40217 - BerriAI LiteLLM: BerriAI LiteLLM Unprotected Alternate Channel Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-40217</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-40217</guid>
+   <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+   <description>BerriAI LiteLLM contains an unprotected alternate channel vulnerability that could allow remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.</description>
+  </item>
+  <item>
+   <title>CVE-2026-90817 - Vanderbilt University Research Electronic Data Capture (REDCap): Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-90817</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-90817</guid>
+   <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Vanderbilt University Research Electronic Data Capture (REDCap) contains a code injection vulnerability which could allow an unauthenticated attacker to execute arbitrary code on the server. An attacker could exploit this via crafted HTTP r</description>
+  </item>
+  <item>
+   <title>CVE-2026-90436 - Apache Axis: Apache Axis Unsafe Reflection Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-90436</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-90436</guid>
+   <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Apache Axis contains an unsafe reflection vulnerability that could allow an unauthenticated remote attacker to execute arbitrary code via a crafted SOAP fault message that causes Axis to load and instantiate an attacker-specified class when</description>
+  </item>
+  <item>
+   <title>CVE-2026-115731 - Perforce Puppet Enterprise: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-115731</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-115731</guid>
+   <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Perforce Puppet Enterprise contains a deserialization of untrusted data vulnerability in Puppet’s report-processing code that allows a client with any CA-signed agent certificate to execute arbitrary code on the Puppet Server as the service</description>
+  </item>
+  <item>
+   <title>CVE-2026-114713 - UnrealIRCd UnrealIRCd: UnrealIRCd Improper Neutralization of Delimiters Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-114713</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-114713</guid>
+   <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
+   <description>UnrealIRCd UnrealIRCd contains an improper neutralization of delimiters vulnerability that allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server authority.</description>
+  </item>
+  <item>
+   <title>CVE-2026-123039 - Check Point Multiple Products: Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123039</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123039</guid>
+   <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Check Point Firewall, Multi-Domain Security Management Server, Scalable Platforms, Security Gateway, and Security Management Server contain an incorrect permissions assignment for critical resources vulnerability when the Gaia OS DynamicCLI</description>
+  </item>
+  <item>
+   <title>CVE-2026-124194 - Microsoft Office: Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-124194</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-124194</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Microsoft Office Outlook contains a missing user interaction for potentially unsafe action vulnerability that allows an unauthorized attacker to perform spoofing over a network.</description>
+  </item>
+  <item>
+   <title>CVE-2026-111793 - Openwave Messaging Limited Webtop Media Transcoder: Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-111793</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-111793</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Openwave Messaging Limited Webtop Media Transcoder contains an incorrect resource transfer between spheres vulnerability that may allow an authenticated user to process and convert unintended document types if bypassing the Webmail experien</description>
+  </item>
+  <item>
+   <title>CVE-2026-20320 - Cisco BroadWorks: Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-20320</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-20320</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Cisco BroadWorks contains an improper restriction of XML external entity reference vulnerability that could allow an unauthenticated, remote attacker to read sensitive configuration information on an affected system.</description>
+  </item>
+  <item>
+   <title>CVE-2026-111560 - Barracuda Networks Multiple Products: Barracuda Networks Multiple Products OS Command Injection Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-111560</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-111560</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Barracuda Networks Email Security Gateway (ESG), Load Balancer, Application Delivery Controller (ADC), Message Archiver (BMA), WAF Control Center (WCC), Web Application Firewall (WAF), and Web Security Gateway (WSG) contain an OS command in</description>
+  </item>
+  <item>
+   <title>CVE-2026-116606 - Barracuda Networks Barracuda Email Security Gateway (ESG): Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-116606</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-116606</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Barracuda Networks Email Security Gateway (ESG) contains an authentication bypass using an alternate path or channel that could allow an unauthenticated remote attacker to invoke a configuration-import function and restore a crafted, compat</description>
+  </item>
+  <item>
+   <title>CVE-2026-125350 - Google Chromium: Google Chromium Use-After-Free Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-125350</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-125350</guid>
+   <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Google Chromium contains a use-after-free vulnerability in the XML component that could allow a remote attacker to execute arbitrary code inside the sandbox via a specially crafted webpage. This vulnerability could affect multiple web brows</description>
+  </item>
+  <item>
+   <title>CVE-2026-102895 - GPUStack GPUStack: GPUStack Improper Authentication Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-102895</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-102895</guid>
+   <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+   <description>GPUStack contains an improper authentication vulnerability which could allow unauthenticated administrative access, including user and model changes, persistent administrator API-key creation, disclosure of worker and cloud-provider secrets</description>
+  </item>
+  <item>
+   <title>CVE-2026-123158 - OpenBSD OpenSSH: OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123158</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123158</guid>
+   <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+   <description>OpenBSD OpenSSH on Linux contains an unexpected status code or return value vulnerability that could allow for authentication bypass.</description>
+  </item>
+  <item>
+   <title>CVE-2026-116779 - SignalWire FreeSwitch: SignalWire FreeSwitch Code Injection Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-116779</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-116779</guid>
+   <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+   <description>SignalWire FreeSwitch contains a code injection vulnerability that permits configuration and credential disclosure, arbitrary call control, and command execution.</description>
+  </item>
+  <item>
+   <title>CVE-2026-123218 - IBM Aspera Faspex: IBM Aspera Faspex Incorrect Authorization Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-123218</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123218</guid>
+   <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+   <description>IBM Aspera Faspex contains an incorrect authorization vulnerability that could allow an authenticated user to craft a specific message to bypass authorization, causing privilege escalations.</description>
+  </item>
+  <item>
+   <title>CVE-2026-19868 - SonicWall SonicOS SSLVPN: SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-19868</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-19868</guid>
+   <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+   <description>SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls. Successful exploitation may al</description>
+  </item>
+  <item>
+   <title>CVE-2024-27834 - Apple Multiple Products: Apple Multiple Products Improper Authentication Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2024-27834</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2024-27834</guid>
+   <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.</description>
+  </item>
+  <item>
+   <title>CVE-2026-119977 - WordPress WordPress Core: WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-119977</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-119977</guid>
+   <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+   <description>WordPress WordPress Core contains a time-of-check time-of-use (TOCTOU) race condition vulnerability that could allow unauthenticated attackers to execute code on the server during the upgrade window. This is due to predictable, web-accessib</description>
+  </item>
+</channel></rss>

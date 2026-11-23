@@ -1,0 +1,101 @@
+[
+ {
+  "cve": "CVE-2026-129448",
+  "vendor": "Apache",
+  "product": "Roller",
+  "name": "Apache Roller Deserialization of Untrusted Data Vulnerability",
+  "added": "2026-11-20",
+  "due": "2026-11-23",
+  "ransomware": "Unknown",
+  "desc": "Apache Roller contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via the XML-RPC endpoint, which accepts and deserializes vendor extension ",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-123890",
+  "vendor": "Broadcom",
+  "product": "VMware vCenter",
+  "name": "VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+  "added": "2026-11-20",
+  "due": "2026-11-23",
+  "ransomware": "Unknown",
+  "desc": "Broadcom VMware vCenter contains an authentication bypass using an alternate path or channel vulnerability in the VMware Directory Service that allows an unauthenticated attacker with network access to vCenter to bypass ",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2025-42884",
+  "vendor": "SAP",
+  "product": "NetWeaver",
+  "name": "SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
+  "added": "2026-11-20",
+  "due": "2026-11-23",
+  "ransomware": "Unknown",
+  "desc": "SAP NetWeaver Enterprise Portal contains an improper neutralization of special elements in data query logic vulnerability that allows an unauthenticated attacker to disclose or modify server information via injected JNDI",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-76466",
+  "vendor": "Cisco",
+  "product": "Expressway Series",
+  "name": "Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
+  "added": "2026-11-20",
+  "due": "2026-11-23",
+  "ransomware": "Unknown",
+  "desc": "Cisco Expressway Series contains a use of hard-coded credentials vulnerability that allows an unauthenticated, remote attacker with persistent cookies and network access to execute commands as root on a clustered device ",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2024-10441",
+  "vendor": "Synology",
+  "product": "DiskStation Manager (DSM)",
+  "name": "Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+  "added": "2026-11-18",
+  "due": "2026-11-21",
+  "ransomware": "Unknown",
+  "desc": "Synology DSM contains an improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) that could allow a remote attacker to execute arbitrary code via unspecified vect",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-40217",
+  "vendor": "BerriAI",
+  "product": "LiteLLM",
+  "name": "BerriAI LiteLLM Unprotected Alternate Channel Vulnerability",
+  "added": "2026-11-18",
+  "due": "2026-12-02",
+  "ransomware": "Unknown",
+  "desc": "BerriAI LiteLLM contains an unprotected alternate channel vulnerability that could allow remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-90817",
+  "vendor": "Vanderbilt University",
+  "product": "Research Electronic Data Capture (REDCap)",
+  "name": "Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
+  "added": "2026-11-18",
+  "due": "2026-11-21",
+  "ransomware": "Unknown",
+  "desc": "Vanderbilt University Research Electronic Data Capture (REDCap) contains a code injection vulnerability which could allow an unauthenticated attacker to execute arbitrary code on the server. An attacker could exploit thi",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-90436",
+  "vendor": "Apache",
+  "product": "Axis",
+  "name": "Apache Axis Unsafe Reflection Vulnerability",
+  "added": "2026-11-18",
+  "due": "2026-11-21",
+  "ransomware": "Unknown",
+  "desc": "Apache Axis contains an unsafe reflection vulnerability that could allow an unauthenticated remote attacker to execute arbitrary code via a crafted SOAP fault message that causes Axis to load and instantiate an attacker-",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ },
+ {
+  "cve": "CVE-2026-115731",
+  "vendor": "Perforce",
+  "product": "Puppet Enterprise",
+  "name": "Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
+  "added": "2026-11-17",
+  "due": "2026-12-01",
+  "ransomware": "Unknown",
+  "desc": "Perforce Puppet Enterprise contains a deserialization of untrusted data vulnerability in Puppet’s report-processing code that allows a client with any CA-signed agent certificate to execute arbitrary code on the Puppet S",
+  "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Note"
+ }
+]

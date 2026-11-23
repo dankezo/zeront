@@ -1,0 +1,8 @@
+{
+  "updated": "2026-11-23",
+  "scope_note_vi": "Số liệu tổng hợp từ hệ thống quét của SecuScan tại Việt Nam. Chỉ công bố con số tổng - không công bố tên hay tình trạng của từng trang web.",
+  "scope_note_en": "Aggregate figures from SecuScan's scanning system in Vietnam. Totals only - the name or patch status of any individual website is never published.",
+  "sites_tracked": 61169,
+  "warnings_sent": 808,
+  "replies_received": 76
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "nginx2root",
+    "cves": ["CVE-2026-123007", "CVE-2026-123633"],
+    "severity": "critical",
+    "title_vi": "nginx HTTP/2 - lỗi 'nginx2root' leo thang đặc quyền",
+    "title_en": "nginx HTTP/2 - 'nginx2root' privilege escalation",
+    "affected_vi": "nginx 1.9.5 đến 1.31.8 khi bật HTTP/2",
+    "affected_en": "nginx 1.9.5 to 1.31.8 with HTTP/2 enabled",
+    "vn_affected": 830,
+    "status_vi": "Đã kiểm chứng từng trường hợp trước khi cảnh báo; cảnh báo đã gửi tới chủ các trang bị ảnh hưởng.",
+    "status_en": "Every case was verified before outreach; warnings have been sent to the affected site owners.",
+    "fix_vi": "Nâng nginx lên 1.30.7 trở lên, hoặc tắt HTTP/2.",
+    "fix_en": "Upgrade nginx to 1.30.7 or later, or disable HTTP/2.",
+    "tracked_since": "2026-11-19",
+    "links": ["https://nginx.org/en/security_advisories.html"]
+  },
+  {
+    "id": "react-rsc-rce",
+    "cves": ["CVE-2026-126187"],
+    "severity": "critical",
+    "title_vi": "React Server Components - thực thi mã từ xa không cần đăng nhập",
+    "title_en": "React Server Components - unauthenticated remote code execution",
+    "affected_vi": "react-server-dom-webpack / parcel / turbopack trên React 19.0.0 đến trước các bản vá 19.0.9, 19.1.10, 19.2.9, 19.3.1",
+    "affected_en": "react-server-dom-webpack / parcel / turbopack on React 19.0.0 before fixes 19.0.9, 19.1.10, 19.2.9, 19.3.1",
+    "vn_affected": 10,
+    "status_vi": "Ghi nhận qua đợt quét sáng 23/11/2026. Điều kiện khai thác hẹp (chỉ dính khi ứng dụng dùng React Server Components theo mẫu dữ liệu đặc thù) - cần kiểm tra từng trang.",
+    "status_en": "Recorded in the 23 Nov 2026 morning scan. Exploitation conditions are narrow (only specific React Server Components data patterns) - each site needs individual checking.",
+    "fix_vi": "Nâng các gói react-server-dom-* lên bản đã vá tương ứng với nhánh React đang dùng.",
+    "fix_en": "Upgrade the react-server-dom-* packages to the fixed release for your React branch.",
+    "tracked_since": "2026-11-23",
+    "links": ["https://nvd.nist.gov/vuln/detail/CVE-2026-126187"]
+  }
+]
