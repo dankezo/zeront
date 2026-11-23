@@ -257,6 +257,14 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
   .row .meta{grid-area:meta;justify-content:flex-start}
   .row .det{grid-area:det}
   .urg .d{font-size:.85rem}
+  /* mobile: no truncated text anywhere - wrap fully or drop the redundant line */
+  .row .idrow{flex-wrap:wrap;row-gap:1px}
+  .row .rel{white-space:normal}
+  .row .plain{display:block;-webkit-line-clamp:none;overflow:visible}
+  .row .orig{display:none}
+  .row .dtxt{white-space:normal}
+  .trow .aff.st{display:block;-webkit-line-clamp:none;overflow:visible}
+  .trow .fixline a{white-space:normal}
   .svc{flex-direction:column;align-items:flex-start}
   .hd nav a{display:none}
   .hd nav{gap:0}
