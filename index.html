@@ -103,14 +103,23 @@ h2{font-size:1.55rem;font-weight:800;margin-bottom:6px}
 .controls input{flex:1;min-width:210px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--txt);font:inherit;font-size:.93rem;padding:10px 14px}
 .chip{border:1px solid var(--line);background:transparent;color:var(--mut);font:inherit;font-size:.85rem;padding:8px 14px;border-radius:20px;cursor:pointer}
 .chip.on{background:var(--green);color:#06281a;border-color:var(--green);font-weight:700}
-.rows{display:flex;flex-direction:column;gap:10px}
-.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;display:grid;grid-template-columns:104px 1fr auto;gap:18px;align-items:center}
-.row .date{font-family:var(--mono);color:var(--dim);font-size:.83rem}
-.row .mid{min-width:0}
-.row .cid{font-family:var(--mono);font-weight:700;color:#ffc65c;font-size:.95rem}
-.row .name{color:var(--txt);font-size:.94rem}
-.row .ven{color:var(--mut);font-size:.84rem}
-.row .meta{text-align:right;font-size:.8rem;color:var(--mut);display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.rows{display:flex;flex-direction:column;gap:8px}
+.thead span{white-space:nowrap}
+.thead{display:grid;grid-template-columns:108px 148px minmax(0,1fr) auto;gap:16px;padding:0 18px 8px;color:var(--dim);font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 18px;display:grid;grid-template-columns:108px 148px minmax(0,1fr) auto;gap:16px;align-items:center}
+.row .date{font-family:var(--mono);color:var(--dim);font-size:.83rem;white-space:nowrap}
+.row .cid{font-family:var(--mono);font-weight:700;color:#ffc65c;font-size:.93rem;white-space:nowrap;text-decoration:none}
+.row .cid:hover{text-decoration:underline}
+.row .name{color:var(--txt);font-size:.94rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.row .name .ven{color:var(--mut)}
+.row .meta{text-align:right;font-size:.8rem;color:var(--mut);display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:nowrap}
+.cardmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.tchip{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:12px;border:1px solid var(--line);color:var(--mut);background:var(--panel2)}
+a.tchip{color:var(--green);border-color:rgba(47,191,113,.45);text-decoration:none}
+a.tchip:hover{background:rgba(47,191,113,.1)}
+.svc{margin-top:26px;border:1px solid rgba(47,191,113,.45);background:rgba(47,191,113,.06);border-radius:16px;padding:24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.svc h3{font-size:1.1rem;margin-bottom:6px}
+.svc p{color:var(--mut);font-size:.93rem;max-width:62ch}
 .bdg{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:12px;text-transform:uppercase}
 .bdg.rw{background:rgba(230,57,70,.16);color:#ff8f98;border:1px solid rgba(230,57,70,.4)}
 .bdg.due{background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-family:var(--mono);text-transform:none;letter-spacing:0}
@@ -118,7 +127,9 @@ h2{font-size:1.55rem;font-weight:800;margin-bottom:6px}
 
 /* agent section */
 .agent{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.abox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.agent>*{min-width:0}
+.abox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.abox pre{max-width:100%}
 .abox h3{font-size:1.08rem;margin-bottom:10px}
 .abox p,.abox li{color:var(--mut);font-size:.93rem}
 .abox ul{margin:10px 0 0 18px}
@@ -150,8 +161,13 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
   .card{grid-template-columns:1fr}
   .card .side{border-left:0;border-top:1px solid var(--line);padding:14px 0 0}
   .agent{grid-template-columns:1fr}
-  .row{grid-template-columns:1fr;gap:6px}
-  .row .meta{flex-direction:row;align-items:center}
+  .thead{display:none}
+  .row{grid-template-columns:1fr auto;grid-template-areas:'cid meta' 'name name' 'date date';row-gap:5px}
+  .row .cid{grid-area:cid}
+  .row .meta{grid-area:meta}
+  .row .date{grid-area:date}
+  .row .name{grid-area:name;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .svc{flex-direction:column;align-items:flex-start}
   .hd nav a{display:none}
   .hd nav{gap:0}
   .brand small{white-space:nowrap}
@@ -177,9 +193,10 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
     <div>
       <div class="kick" data-vi="Cập nhật mỗi ngày - Nguồn công khai + quét thực tế" data-en="Updated daily - Public sources + real scans">Cập nhật mỗi ngày - Nguồn công khai + quét thực tế</div>
       <h1 data-vi="Biết lỗ hổng <span class='hl'>trước khi</span> nó thành sự cố của bạn" data-en="Know the flaw <span class='hl'>before</span> it becomes your incident">Biết lỗ hổng <span class="hl">trước khi</span> nó thành sự cố của bạn</h1>
-      <p class="sub" data-vi="Zeront theo dõi các lỗ hổng đang bị khai thác ngoài thực tế trên thế giới, đối chiếu với dữ liệu quét website tại Việt Nam và cho bạn biết: lỗi nào đang nóng, bao nhiêu trang bị ảnh hưởng, và vá bằng cách nào." data-en="Zeront tracks vulnerabilities being exploited in the wild worldwide, cross-checks them against website scan data in Vietnam, and tells you: which flaws are hot, how many sites are affected, and how to fix them.">Zeront theo dõi các lỗ hổng đang bị khai thác ngoài thực tế trên thế giới, đối chiếu với dữ liệu quét website tại Việt Nam và cho bạn biết: lỗi nào đang nóng, bao nhiêu trang bị ảnh hưởng, và vá bằng cách nào.</p>
+      <p class="sub" data-vi="Zeront canh các lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu dữ liệu quét tại Việt Nam: lỗi nào đang nóng, bao nhiêu trang dính, vá thế nào." data-en="Zeront watches vulnerabilities being exploited in the wild, cross-checked against scan data in Vietnam: which flaws are hot, how many sites are hit, and how to fix them.">Zeront canh các lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu dữ liệu quét tại Việt Nam: lỗi nào đang nóng, bao nhiêu trang dính, vá thế nào.</p>
       <div class="cta">
         <a class="btn g" href="https://secuscan.dannyphan.me/#quickcheck" data-vi="Kiểm tra web của bạn - miễn phí" data-en="Check your website - free">Kiểm tra web của bạn - miễn phí</a>
+        <a class="btn o" href="https://github.com/dankezo/zeront" target="_blank" rel="noopener">GitHub</a>
         <a class="btn o" href="#agents" data-vi="Feed dữ liệu cho agent" data-en="Data feed for agents">Feed dữ liệu cho agent</a>
       </div>
       <div class="upd" id="upd"></div>
@@ -191,25 +208,34 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
 
   <section id="tracked">
     <h2 data-vi="Đang theo dõi tại Việt Nam" data-en="Tracked in Vietnam">Đang theo dõi tại Việt Nam</h2>
-    <p class="secsub" data-vi="Các lỗi Zeront đang canh trên dữ liệu quét thật. Con số ảnh hưởng là tổng hợp từ hệ thống quét của SecuScan - tên từng trang web không bao giờ được công bố; chủ trang nhận cảnh báo riêng." data-en="Flaws Zeront is watching against real scan data. Impact figures are aggregates from SecuScan's scanning system - individual websites are never named publicly; owners are warned privately.">Các lỗi Zeront đang canh trên dữ liệu quét thật. Con số ảnh hưởng là tổng hợp từ hệ thống quét của SecuScan - tên từng trang web không bao giờ được công bố; chủ trang nhận cảnh báo riêng.</p>
+    <p class="secsub" data-vi="Lỗi Zeront đang canh trên dữ liệu quét thật tại Việt Nam. Chỉ công bố số tổng hợp - chủ trang bị ảnh hưởng nhận cảnh báo riêng." data-en="Flaws watched against real scan data in Vietnam. Aggregates only - affected owners are warned privately.">Lỗi Zeront đang canh trên dữ liệu quét thật tại Việt Nam. Chỉ công bố số tổng hợp - chủ trang bị ảnh hưởng nhận cảnh báo riêng.</p>
     <div class="cards" id="cards"></div>
   </section>
 
   <section id="kev">
-    <h2 data-vi="Mới bị đưa vào danh mục đang khai thác (CISA KEV)" data-en="Newly catalogued as exploited (CISA KEV)">Mới bị đưa vào danh mục đang khai thác (CISA KEV)</h2>
-    <p class="secsub" data-vi="Danh mục KEV của CISA (Mỹ) chỉ gồm các lỗ hổng đã có bằng chứng bị khai thác thật ngoài đời. Lọt vào danh sách này nghĩa là kẻ tấn công đã dùng nó - cần vá ngay, không phải lỗi lý thuyết." data-en="CISA's KEV catalog lists only vulnerabilities with evidence of real-world exploitation. Landing here means attackers are already using it - patch now, this is not theoretical.">Danh mục KEV của CISA (Mỹ) chỉ gồm các lỗ hổng đã có bằng chứng bị khai thác thật ngoài đời. Lọt vào danh sách này nghĩa là kẻ tấn công đã dùng nó - cần vá ngay, không phải lỗi lý thuyết.</p>
+    <h2 data-vi="Top lỗ hổng đang hot - CISA KEV" data-en="Hot flaws right now - CISA KEV">Top lỗ hổng đang hot - CISA KEV</h2>
+    <p class="secsub" data-vi="KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này." data-en="CISA's KEV lists only flaws with proven in-the-wild exploitation - landing here means patch now. Vietnam impact counts exist only for the tracked flaws above; global KEV data carries no such figures.">KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này.</p>
     <div class="controls">
       <input id="q" type="search" placeholder="Tìm theo mã CVE, hãng, sản phẩm...">
       <button class="chip on" data-f="all" data-vi="Tất cả" data-en="All">Tất cả</button>
       <button class="chip" data-f="week" data-vi="7 ngày qua" data-en="Last 7 days">7 ngày qua</button>
       <button class="chip" data-f="rw" data-vi="Dính mã độc tống tiền" data-en="Ransomware-linked">Dính mã độc tống tiền</button>
     </div>
+    <div class="thead"><span data-vi="Ngày vào KEV" data-en="Date added">Ngày vào KEV</span><span data-vi="Mã CVE" data-en="CVE id">Mã CVE</span><span data-vi="Lỗ hổng" data-en="Vulnerability">Lỗ hổng</span><span data-vi="Ghi chú" data-en="Notes">Ghi chú</span></div>
     <div class="rows" id="rows"></div>
   </section>
 
+  <div class="svc">
+    <div>
+      <h3 data-vi="Không muốn tự canh tin lỗi mỗi ngày?" data-en="Rather not watch vuln news yourself?">Không muốn tự canh tin lỗi mỗi ngày?</h3>
+      <p data-vi="SecuScan quét web của bạn mỗi ngày, gửi bản tin lỗ hổng toàn cầu mỗi tháng và hỗ trợ cập nhật, vá lỗi khi có lỗi dính tới trang của bạn. Tháng đầu miễn phí." data-en="SecuScan scans your site daily, sends a monthly global vulnerability digest, and helps you update and patch when a flaw matches your site. First month free.">SecuScan quét web của bạn mỗi ngày, gửi bản tin lỗ hổng toàn cầu mỗi tháng và hỗ trợ cập nhật, vá lỗi khi có lỗi dính tới trang của bạn. Tháng đầu miễn phí.</p>
+    </div>
+    <a class="btn g" href="https://secuscan.dannyphan.me/#pricing" data-vi="Xem dịch vụ SecuScan" data-en="See the SecuScan service">Xem dịch vụ SecuScan</a>
+  </div>
+
   <section id="agents">
     <h2 data-vi="Cho agent và nhà phát triển" data-en="For agents and developers">Cho agent và nhà phát triển</h2>
-    <p class="secsub" data-vi="Toàn bộ dữ liệu trên trang này có bản máy đọc được, cập nhật cùng lúc với trang. Agent, bot và công cụ của bạn có thể crawl tự do để lấy tin lỗ hổng mới kèm số liệu ảnh hưởng tổng hợp." data-en="Everything on this page has a machine-readable twin, refreshed at the same time. Agents, bots and tools may crawl it freely for fresh vulnerability intel with aggregate impact figures.">Toàn bộ dữ liệu trên trang này có bản máy đọc được, cập nhật cùng lúc với trang. Agent, bot và công cụ của bạn có thể crawl tự do để lấy tin lỗ hổng mới kèm số liệu ảnh hưởng tổng hợp.</p>
+    <p class="secsub" data-vi="Mọi dữ liệu trên trang đều có bản máy đọc được (feed.json, RSS), cập nhật cùng lúc - agent và bot crawl tự do." data-en="Everything here has a machine-readable twin (feed.json, RSS), refreshed at the same time - agents and bots may crawl freely.">Mọi dữ liệu trên trang đều có bản máy đọc được (feed.json, RSS), cập nhật cùng lúc - agent và bot crawl tự do.</p>
     <div class="agent">
       <div class="abox">
         <h3 data-vi="Các đầu mối dữ liệu" data-en="Endpoints">Các đầu mối dữ liệu</h3>
@@ -258,7 +284,7 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
   <footer>
     <div class="ft">
       <div><b style="color:var(--txt)">ZERONT</b> - <span data-vi="một sản phẩm của" data-en="a product by">một sản phẩm của</span> <a href="https://secuscan.dannyphan.me/">SecuScan</a> · <span data-vi="Kiểm tra bảo mật website định kỳ cho doanh nghiệp nhỏ" data-en="Recurring website security checks for small businesses">Kiểm tra bảo mật website định kỳ cho doanh nghiệp nhỏ</span></div>
-      <div><a href="feed.json">feed.json</a> · <a href="feed.xml">feed.xml</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a> · <a href="https://nvd.nist.gov/">NVD</a></div>
+      <div><a href="feed.json">feed.json</a> · <a href="feed.xml">feed.xml</a> · <a href="https://github.com/dankezo/zeront" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV</a> · <a href="https://nvd.nist.gov/" target="_blank" rel="noopener">NVD</a></div>
     </div>
     <div style="margin-top:12px" data-vi="Số liệu ảnh hưởng tại Việt Nam là kết quả tổng hợp từ hệ thống quét của SecuScan, cập nhật theo đợt quét gần nhất. Zeront không lưu hay bán dữ liệu của từng website." data-en="Vietnam impact figures are aggregates from SecuScan's scanning system, refreshed with the latest scan round. Zeront does not store or sell per-website data.">Số liệu ảnh hưởng tại Việt Nam là kết quả tổng hợp từ hệ thống quét của SecuScan, cập nhật theo đợt quét gần nhất. Zeront không lưu hay bán dữ liệu của từng website.</div>
   </footer>
@@ -275,13 +301,13 @@ var T = {
     ['kev_total','Lỗ hổng đã bị khai thác thật, toàn cầu (danh mục KEV)',''],
     ['kev_new_this_week','Lỗ hổng mới lọt danh mục KEV trong 7 ngày qua','warn'],
     ['warnings_sent','Cảnh báo đã gửi tận tay chủ trang bị ảnh hưởng','ok']],
-    due:'Hạn vá (CISA)', rw:'Mã độc tống tiền', empty:'Không có mục nào khớp bộ lọc.', ph:'Tìm theo mã CVE, hãng, sản phẩm...'},
+    due:'Hạn vá (CISA)', rw:'Mã độc tống tiền', empty:'Không có mục nào khớp bộ lọc.', ph:'Tìm theo mã CVE, hãng, sản phẩm...', since:'Theo dõi từ', check:'Kiểm tra web của bạn'},
   en:{upd:'Updated', tracked:'verified affected websites in Vietnam', fix:'Fix:', stats:[
     ['sites_tracked_vn','Websites tracked by SecuScan in Vietnam',''],
     ['kev_total','Vulnerabilities exploited in the wild, worldwide (KEV catalog)',''],
     ['kev_new_this_week','New KEV additions in the last 7 days','warn'],
     ['warnings_sent','Warnings delivered to affected site owners','ok']],
-    due:'CISA due date', rw:'Ransomware', empty:'No entries match this filter.', ph:'Search by CVE id, vendor, product...'}
+    due:'CISA due date', rw:'Ransomware', empty:'No entries match this filter.', ph:'Search by CVE id, vendor, product...', since:'Tracked since', check:'Check your website'}
 };
 function renderStats(){
   document.getElementById('stats').innerHTML = T[lang].stats.map(function(s){
@@ -294,9 +320,11 @@ function renderCards(){
     var aff = lang==='vi' ? f.affected_vi : f.affected_en;
     var st = lang==='vi' ? f.status_vi : f.status_en;
     var fx = lang==='vi' ? f.fix_vi : f.fix_en;
-    var cves = f.cves.map(function(c){ return '<a href="https://www.cve.org/CVERecord?id='+c+'">'+c+'</a>'; }).join('');
+    var cves = f.cves.map(function(c){ return '<a href="https://www.cve.org/CVERecord?id='+c+'" target="_blank" rel="noopener">'+c+'</a>'; }).join('');
+    var since = f.tracked_since ? f.tracked_since.split('-').reverse().join('/') : '';
     return '<article class="card"><div><span class="sev">'+f.severity+'</span><h3>'+title+'</h3><div class="cves">'+cves+'</div>'
-      + '<p><b>'+(lang==='vi'?'Dính lỗi: ':'Affected: ')+'</b>'+aff+'</p><p style="margin-top:6px">'+st+'</p></div>'
+      + '<p><b>'+(lang==='vi'?'Dính lỗi: ':'Affected: ')+'</b>'+aff+'</p><p style="margin-top:6px">'+st+'</p>'
+      + '<div class="cardmeta"><span class="tchip">'+T[lang].since+' '+since+'</span><a class="tchip" href="https://secuscan.dannyphan.me/kiem-tra/">'+T[lang].check+' →</a></div></div>'
       + '<div class="side"><div class="big">'+fmt(f.vn_affected)+'</div><div class="biglab">'+T[lang].tracked+'</div>'
       + '<div class="fixbox"><b>'+T[lang].fix+'</b> '+fx+'</div></div></article>';
   }).join('');
@@ -312,9 +340,10 @@ function renderRows(){
   });
   document.getElementById('rows').innerHTML = list.length ? list.map(function(v){
     var rw = v.ransomware==='Known' ? '<span class="bdg rw">'+T[lang].rw+'</span>' : '';
-    return '<div class="row"><div class="date">'+v.added+'</div><div class="mid"><a class="cid" href="'+v.link+'">'+v.cve+'</a>'
-      + '<div class="name">'+v.name+'</div><div class="ven">'+v.vendor+' · '+v.product+'</div></div>'
-      + '<div class="meta">'+rw+'<span class="bdg due">'+T[lang].due+': '+v.due+'</span></div></div>';
+    var full = v.vendor+' '+v.product+' - '+v.name;
+    return '<div class="row"><span class="date">'+v.added+'</span><a class="cid" href="'+v.link+'" target="_blank" rel="noopener">'+v.cve+'</a>'
+      + '<span class="name" title="'+full.replace(/"/g,'&quot;')+'"><span class="ven">'+v.vendor+' '+v.product+'</span> - '+v.name+'</span>'
+      + '<span class="meta">'+rw+'<span class="bdg due">'+T[lang].due+': '+v.due+'</span></span></div>';
   }).join('') : '<div class="empty">'+T[lang].empty+'</div>';
 }
 function renderUpd(){

@@ -1,44 +1,56 @@
 <!-- Zeront condensed radar block for the SecuScan homepage.
-     Paste before the pricing section. Static content is baked in;
-     the small script at the end refreshes numbers from /radar/feed.json
-     when the radar is deployed on the same domain. -->
+     Paste before the pricing section. One full-width table: tracked flaws
+     (with Vietnam affected counts) first, then hot CISA KEV rows.
+     Static content is baked in; the script refreshes rows from
+     /radar/feed.json when deployed on the same domain. -->
 <style>
-.zr-panel{background:var(--surface,#11161d);border:1px solid var(--line,#22303c);border-radius:14px;padding:26px;display:grid;grid-template-columns:1.35fr 1fr;gap:28px}
-.zr-item{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--line,#22303c);align-items:baseline}
-.zr-item:last-of-type{border-bottom:0}
-.zr-date{font-family:ui-monospace,Consolas,monospace;color:var(--muted2,#7e93a8);font-size:.82rem;flex:none;width:86px}
-.zr-cve{font-family:ui-monospace,Consolas,monospace;font-weight:700;color:var(--amber,#f5a623)}
-.zr-name{color:var(--muted,#9db0c1);font-size:.92rem}
-.zr-stats{display:flex;flex-direction:column;gap:14px;justify-content:center}
-.zr-stat{display:flex;align-items:baseline;gap:12px}
-.zr-stat .n{font-family:ui-monospace,Consolas,monospace;font-size:1.55rem;font-weight:700;line-height:1;min-width:104px}
-.zr-stat .l{color:var(--muted,#9db0c1);font-size:.9rem}
-@media (max-width:860px){.zr-panel{grid-template-columns:1fr}}
+.zr-panel{background:var(--surface,#11161d);border:1px solid var(--line,#22303c);border-radius:14px;padding:8px 26px 22px}
+.zr-head,.zr-row{display:grid;grid-template-columns:92px 168px minmax(0,1fr) 158px;gap:16px;align-items:center}
+.zr-head span{white-space:nowrap}
+.zr-head{padding:14px 0 9px;color:var(--muted2,#7e93a8);font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.zr-head .r{text-align:right}
+.zr-row{padding:11px 0;border-top:1px solid var(--line,#22303c)}
+.zr-date{font-family:ui-monospace,Consolas,monospace;color:var(--muted2,#7e93a8);font-size:.82rem;white-space:nowrap}
+.zr-cve{font-family:ui-monospace,Consolas,monospace;font-weight:700;color:var(--amber,#f5a623);font-size:.86rem;white-space:nowrap;text-decoration:none}
+a.zr-cve:hover{text-decoration:underline}
+.zr-plus{color:var(--muted2,#7e93a8);font-family:ui-monospace,Consolas,monospace;font-size:.8rem}
+.zr-name{color:var(--txt,#e9eff5);font-size:.94rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.zr-name .ven{color:var(--muted,#9db0c1)}
+.zr-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#ff8f98;border:1px solid rgba(230,57,70,.45);background:rgba(230,57,70,.1);border-radius:11px;padding:1px 8px;margin-left:9px;vertical-align:2px}
+.zr-aff{text-align:right;font-family:ui-monospace,Consolas,monospace;color:var(--muted2,#7e93a8);white-space:nowrap}
+.zr-aff b{color:var(--red,#e63946);font-size:1.12rem}
+.zr-aff .u{font-family:inherit;font-size:.8rem;color:var(--muted,#9db0c1)}
+.zr-foot{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.zr-note{color:var(--muted2,#7e93a8);font-size:.84rem}
+@media (max-width:860px){
+  .zr-panel{padding:8px 18px 18px}
+  .zr-head{display:none}
+  .zr-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'cve aff' 'name name' 'date date';row-gap:4px}
+  .zr-cve{grid-area:cve}.zr-aff{grid-area:aff}.zr-date{grid-area:date}
+  .zr-name{grid-area:name;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+}
 </style>
 <section id="radar" style="padding-top:64px">
   <div class="container">
     <div class="sec-head">
       <div class="kicker" data-vi="Zeront - Radar lỗ hổng bảo mật" data-en="Zeront - Vulnerability radar">Zeront - Radar lỗ hổng bảo mật</div>
       <h2 data-vi="Lỗ hổng mới trên thế giới, canh sẵn mỗi ngày" data-en="Fresh flaws worldwide, watched daily">Lỗ hổng mới trên thế giới, canh sẵn mỗi ngày</h2>
-      <p data-vi="SecuScan có hẳn một radar riêng: Zeront theo dõi các lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu với dữ liệu quét tại Việt Nam. Trang của bạn mà dính diện theo dõi là được cảnh báo riêng ngay." data-en="SecuScan runs its own radar: Zeront tracks vulnerabilities being exploited in the wild worldwide and cross-checks them against scan data in Vietnam. If your site falls in a tracked range, you get a private warning right away.">SecuScan có hẳn một radar riêng: Zeront theo dõi các lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu với dữ liệu quét tại Việt Nam. Trang của bạn mà dính diện theo dõi là được cảnh báo riêng ngay.</p>
+      <p data-vi="Radar riêng của SecuScan: canh lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu dữ liệu quét <span id='zr-n-sites'>61.169</span> trang tại Việt Nam." data-en="SecuScan's own radar: watches flaws being exploited worldwide, cross-checked against scans of <span id='zr-n-sites'>61,169</span> websites in Vietnam.">Radar riêng của SecuScan: canh lỗ hổng đang bị khai thác thật trên thế giới, đối chiếu dữ liệu quét <span id="zr-n-sites">61.169</span> trang tại Việt Nam.</p>
     </div>
     <div class="zr-panel">
-      <div>
-        <div style="font-weight:700;margin-bottom:4px" data-vi="Mới lọt danh mục đang khai thác (CISA KEV)" data-en="Newly catalogued as exploited (CISA KEV)">Mới lọt danh mục đang khai thác (CISA KEV)</div>
-        <div id="zr-list">
-          <div class="zr-item"><span class="zr-date">2026-11-20</span><span><span class="zr-cve">CVE-2026-129448</span><br><span class="zr-name">Apache Roller - Deserialization of Untrusted Data</span></span></div>
-          <div class="zr-item"><span class="zr-date">2026-11-20</span><span><span class="zr-cve">CVE-2026-123890</span><br><span class="zr-name">Broadcom VMware vCenter - Authentication Bypass</span></span></div>
-          <div class="zr-item"><span class="zr-date">2026-11-20</span><span><span class="zr-cve">CVE-2026-76466</span><br><span class="zr-name">Cisco Expressway - Hard-coded Credentials</span></span></div>
-        </div>
-        <a href="/radar/" style="display:inline-block;margin-top:14px;color:var(--green,#2fbf71);font-weight:600" data-vi="Xem toàn bộ radar Zeront →" data-en="Open the full Zeront radar →">Xem toàn bộ radar Zeront →</a>
+      <div class="zr-head"><span data-vi="Ngày" data-en="Date">Ngày</span><span data-vi="Mã CVE" data-en="CVE id">Mã CVE</span><span data-vi="Lỗ hổng đang hot" data-en="Hot flaw">Lỗ hổng đang hot</span><span class="r" data-vi="Ảnh hưởng tại VN" data-en="Affected in VN">Ảnh hưởng tại VN</span></div>
+      <div id="zr-list">
+        <div class="zr-row"><span class="zr-date">2026-11-19</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=CVE-2026-123007" target="_blank" rel="noopener">CVE-2026-123007</a> <span class="zr-plus">+1</span></span><span class="zr-name">nginx HTTP/2 - lỗi 'nginx2root' leo thang đặc quyền<span class="zr-tag">Đang theo dõi</span></span><span class="zr-aff"><b>830</b> <span class="u">trang</span></span></div>
+        <div class="zr-row"><span class="zr-date">2026-11-23</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=CVE-2026-126187" target="_blank" rel="noopener">CVE-2026-126187</a></span><span class="zr-name">React Server Components - thực thi mã từ xa không cần đăng nhập<span class="zr-tag">Đang theo dõi</span></span><span class="zr-aff"><b>10</b> <span class="u">trang</span></span></div>
+        <div class="zr-row"><span class="zr-date">2026-11-20</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=CVE-2026-129448" target="_blank" rel="noopener">CVE-2026-129448</a></span><span class="zr-name"><span class="ven">Apache Roller</span> - Deserialization of Untrusted Data</span><span class="zr-aff">-</span></div>
+        <div class="zr-row"><span class="zr-date">2026-11-20</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=CVE-2026-123890" target="_blank" rel="noopener">CVE-2026-123890</a></span><span class="zr-name"><span class="ven">Broadcom VMware vCenter</span> - Authentication Bypass</span><span class="zr-aff">-</span></div>
+        <div class="zr-row"><span class="zr-date">2026-11-20</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=CVE-2026-76466" target="_blank" rel="noopener">CVE-2026-76466</a></span><span class="zr-name"><span class="ven">Cisco Expressway</span> - Hard-coded Credentials</span><span class="zr-aff">-</span></div>
       </div>
-      <div class="zr-stats">
-        <div class="zr-stat"><span class="n" id="zr-n-week" style="color:var(--amber,#f5a623)">9</span><span class="l" data-vi="lỗ hổng mới bị khai thác trong 7 ngày qua" data-en="new exploited flaws in the last 7 days">lỗ hổng mới bị khai thác trong 7 ngày qua</span></div>
-        <div class="zr-stat"><span class="n" style="color:var(--red,#e63946)">830</span><span class="l" data-vi="trang tại Việt Nam đã xác minh dính lỗi nginx2root" data-en="verified Vietnam sites affected by nginx2root">trang tại Việt Nam đã xác minh dính lỗi nginx2root</span></div>
-        <div class="zr-stat"><span class="n" id="zr-n-sites">61.169</span><span class="l" data-vi="trang web đang được hệ thống quét theo dõi" data-en="websites tracked by the scanning system">trang web đang được hệ thống quét theo dõi</span></div>
+      <div class="zr-foot">
         <a class="btn" style="background:var(--green,#2fbf71);color:#06281a;justify-content:center" href="/radar/" data-vi="Mở radar Zeront" data-en="Open the Zeront radar">Mở radar Zeront</a>
+        <a class="btn btn-ghost" style="justify-content:center" href="https://github.com/dankezo/zeront" target="_blank" rel="noopener">GitHub</a>
         <button class="btn btn-ghost" id="zr-copy" style="justify-content:center" data-vi="Sao chép prompt cho agent của bạn" data-en="Copy the prompt for your agent">Sao chép prompt cho agent của bạn</button>
-        <p style="color:var(--muted2,#7e93a8);font-size:.83rem" data-vi="Dán prompt vào ChatGPT/Claude của bạn: agent tự quét trang của bạn theo radar này và canh tin mới mỗi ngày." data-en="Paste the prompt into your ChatGPT/Claude: the agent checks your site against this radar and watches for new flaws daily.">Dán prompt vào ChatGPT/Claude của bạn: agent tự quét trang của bạn theo radar này và canh tin mới mỗi ngày.</p>
+        <span class="zr-note" data-vi="Không muốn tự canh? SecuScan quét mỗi ngày, có lỗi dính tới trang của bạn là báo ngay + hỗ trợ cập nhật, vá lỗi." data-en="Rather not watch it yourself? SecuScan scans daily, alerts you when a flaw matches your site, and helps you patch.">Không muốn tự canh? SecuScan quét mỗi ngày, có lỗi dính tới trang của bạn là báo ngay + hỗ trợ cập nhật, vá lỗi.</span>
       </div>
     </div>
   </div>
@@ -77,16 +89,26 @@
     else { fb(); done(); }
     function fb(){ var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); }
   }); }
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
   fetch('/radar/feed.json').then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){
-    var loc = (window.LANG==='en') ? 'en-US' : 'vi-VN';
-    var w = document.getElementById('zr-n-week'); if(w && d.stats) w.textContent = d.stats.kev_new_this_week;
+    var en = (window.LANG === 'en');
+    var loc = en ? 'en-US' : 'vi-VN';
     var s = document.getElementById('zr-n-sites'); if(s && d.stats) s.textContent = Number(d.stats.sites_tracked_vn).toLocaleString(loc);
     var box = document.getElementById('zr-list');
-    if(box && d.kev_recent && d.kev_recent.length){
-      box.innerHTML = d.kev_recent.slice(0,3).map(function(v){
-        return '<div class="zr-item"><span class="zr-date">'+v.added+'</span><span><span class="zr-cve">'+v.cve+'</span><br><span class="zr-name">'+v.vendor+' '+v.product+' - '+v.name+'</span></span></div>';
-      }).join('');
-    }
+    if(!box) return;
+    var rows = '';
+    (d.featured || []).forEach(function(f){
+      var cve = f.cves[0];
+      var plus = f.cves.length > 1 ? ' <span class="zr-plus">+' + (f.cves.length - 1) + '</span>' : '';
+      var title = en ? f.title_en : f.title_vi;
+      var unit = en ? 'sites' : 'trang';
+      var tag = en ? 'Tracked' : 'Đang theo dõi';
+      rows += '<div class="zr-row"><span class="zr-date">' + esc(f.tracked_since) + '</span><span><a class="zr-cve" href="https://www.cve.org/CVERecord?id=' + esc(cve) + '" target="_blank" rel="noopener">' + esc(cve) + '</a>' + plus + '</span><span class="zr-name">' + esc(title) + '<span class="zr-tag">' + tag + '</span></span><span class="zr-aff"><b>' + Number(f.vn_affected).toLocaleString(loc) + '</b> <span class="u">' + unit + '</span></span></div>';
+    });
+    (d.kev_recent || []).slice(0, 3).forEach(function(v){
+      rows += '<div class="zr-row"><span class="zr-date">' + esc(v.added) + '</span><span><a class="zr-cve" href="' + esc(v.link) + '" target="_blank" rel="noopener">' + esc(v.cve) + '</a></span><span class="zr-name"><span class="ven">' + esc(v.vendor + ' ' + v.product) + '</span> - ' + esc(v.name) + '</span><span class="zr-aff">-</span></div>';
+    });
+    if(rows) box.innerHTML = rows;
   }).catch(function(){});
 })();
 </script>
