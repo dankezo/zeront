@@ -4,7 +4,7 @@
  <link>https://secuscan.dannyphan.me/radar/</link>
  <description>New exploited vulnerabilities (CISA KEV), tracked flaws in Vietnam with aggregate impact figures, and fixes. Aggregates only - individual websites are never named.</description>
  <language>vi</language>
- <lastBuildDate>Mon, 23 Nov 2026 04:25:23 +0000</lastBuildDate>
+ <lastBuildDate>Mon, 23 Nov 2026 04:40:27 +0000</lastBuildDate>
   <item>
    <title>[Tracked in Vietnam] CVE-2026-123007 - nginx HTTP/2 - 'nginx2root' privilege escalation</title>
    <link>https://www.cve.org/CVERecord?id=CVE-2026-123007</link>

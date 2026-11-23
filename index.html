@@ -5,8 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zeront - Radar lỗ hổng bảo mật | SecuScan</title>
 <meta name="description" content="Radar lỗ hổng bảo mật: lỗi mới đang bị khai thác trên thế giới (CISA KEV), các lỗi đang theo dõi tại Việt Nam kèm số liệu ảnh hưởng tổng hợp và cách vá. Cập nhật hằng ngày.">
+<link rel="canonical" href="https://secuscan.dannyphan.me/radar/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0c1219">
+<meta name="author" content="SecuScan">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zeront by SecuScan">
+<meta property="og:title" content="Zeront - Radar lỗ hổng bảo mật">
+<meta property="og:description" content="Lỗi đang bị khai thác thật trên thế giới (CISA KEV + EPSS), đối chiếu dữ liệu quét 61.169 trang tại Việt Nam. Cập nhật hằng ngày, có feed cho agent.">
+<meta property="og:url" content="https://secuscan.dannyphan.me/radar/">
+<meta property="og:image" content="https://secuscan.dannyphan.me/radar/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zeront - Radar lỗ hổng bảo mật">
+<meta name="twitter:description" content="Lỗi đang bị khai thác thật trên thế giới, đối chiếu dữ liệu quét tại Việt Nam. Cập nhật hằng ngày.">
+<meta name="twitter:image" content="https://secuscan.dannyphan.me/radar/og-image.png">
 <link rel="alternate" type="application/json" title="Zeront feed (JSON)" href="feed.json">
 <link rel="alternate" type="application/rss+xml" title="Zeront feed (RSS)" href="feed.xml">
+<link rel="alternate" type="text/markdown" title="Zeront radar (Markdown)" href="feed.md">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
@@ -331,6 +352,9 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
           <li><span class="ep">feed.json</span> - <span data-vi="toàn bộ radar dạng JSON (schema zeront-feed/2: có nhãn ảnh hưởng dễ hiểu, tóm tắt tiếng Việt, số ngày tới hạn vá)" data-en="the full radar as JSON (schema zeront-feed/2: plain-language impact labels, Vietnamese summaries, days-to-deadline)">toàn bộ radar dạng JSON (schema zeront-feed/2: có nhãn ảnh hưởng dễ hiểu, tóm tắt tiếng Việt, số ngày tới hạn vá)</span> (<a href="feed.json">feed.json</a>)</li>
           <li><span class="ep">feed.xml</span> - <span data-vi="RSS 2.0 cho trình đọc tin và bot theo dõi" data-en="RSS 2.0 for readers and monitoring bots">RSS 2.0 cho trình đọc tin và bot theo dõi</span> (<a href="feed.xml">feed.xml</a>)</li>
           <li><span class="ep">llms.txt</span> - <span data-vi="bản đồ dữ liệu viết cho AI agent: đầu mối, cấu trúc feed, cách dùng" data-en="a data map written for AI agents: endpoints, feed schema, usage">bản đồ dữ liệu viết cho AI agent: đầu mối, cấu trúc feed, cách dùng</span> (<a href="llms.txt">llms.txt</a>)</li>
+          <li><span class="ep">feed.md</span> - <span data-vi="toàn bộ radar trong một file Markdown, cho agent đọc một lần là đủ" data-en="the whole radar in one Markdown file, one fetch is enough for an agent">toàn bộ radar trong một file Markdown, cho agent đọc một lần là đủ</span> (<a href="feed.md">feed.md</a>)</li>
+          <li><span class="ep">MCP server</span> - <span data-vi="feed đóng gói thành công cụ MCP (tóm tắt, tìm lỗi, đối chiếu web của bạn) cho Claude Code, Cursor và các agent hỗ trợ MCP" data-en="the feed as MCP tools (summary, search, check your site) for Claude Code, Cursor and MCP-capable agents">feed đóng gói thành công cụ MCP (tóm tắt, tìm lỗi, đối chiếu web của bạn) cho Claude Code, Cursor và các agent hỗ trợ MCP</span> (<a href="https://github.com/dankezo/zeront/tree/main/mcp" target="_blank" rel="noopener">mcp/</a>)</li>
+          <li><span class="ep">Skill</span> - <span data-vi="gói kỹ năng dạy agent cách kiểm tra web theo radar Zeront và báo cáo trung thực" data-en="a skill package teaching agents to check sites against the Zeront radar and report honestly">gói kỹ năng dạy agent cách kiểm tra web theo radar Zeront và báo cáo trung thực</span> (<a href="https://github.com/dankezo/zeront/tree/main/skill" target="_blank" rel="noopener">skill/</a>)</li>
           <li><span class="ep">extension</span> - <span data-vi="Zeront cho Chrome: tự đối chiếu web của bạn với radar mỗi ngày, báo ngay khi dính lỗi" data-en="Zeront for Chrome: checks your sites against the radar daily and alerts on a match">Zeront cho Chrome: tự đối chiếu web của bạn với radar mỗi ngày, báo ngay khi dính lỗi</span> (<a href="https://dankezo.github.io/zeront/extension.html" target="_blank" rel="noopener">extension.html</a>)</li>
           <li><span data-vi="Trang này nhúng sẵn" data-en="This page embeds">Trang này nhúng sẵn</span> JSON-LD (schema.org/Dataset) <span data-vi="để agent đọc trực tiếp" data-en="for direct agent reading">để agent đọc trực tiếp</span></li>
         </ul>

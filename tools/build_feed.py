@@ -253,6 +253,42 @@ def main():
         ],
     }
 
+    # Markdown rendering of the whole radar (feed.md) - for agents and
+    # humans who prefer plain markdown over JSON.
+    md = []
+    md.append("# Zeront - Vulnerability Radar (by SecuScan)")
+    md.append("")
+    md.append(f"Updated: {feed['generated_at']} (UTC). Sources: CISA KEV, FIRST EPSS, SecuScan Vietnam scan aggregates.")
+    md.append(f"Websites tracked in Vietnam: {feed['stats']['sites_tracked_vn']}. KEV catalog total: {feed['stats']['kev_total']}. New KEV this week: {feed['stats']['kev_new_this_week']}. Warnings sent: {feed['stats']['warnings_sent']}.")
+    md.append("")
+    md.append("## Tracked in Vietnam (verified affected counts)")
+    md.append("")
+    for f in featured:
+        md.append(f"### {f['title_en']} ({', '.join(f['cves'])})")
+        md.append(f"- Affected in Vietnam (verified, aggregate): {f['vn_affected']} sites")
+        md.append(f"- {f['affected_en']}")
+        md.append(f"- {f['status_en']}")
+        md.append(f"- Fix: {f['fix_en']}")
+        md.append("")
+    md.append("## New in CISA KEV (last 21 days)")
+    md.append("")
+    md.append("| CVE | Flaw | Impact | CISA due | EPSS |")
+    md.append("|---|---|---|---|---|")
+    for v in kev_recent:
+        epss = f"{round(v['epss'] * 100)}%" if v.get("epss") is not None else "-"
+        md.append(f"| [{v['cve']}]({v['link']}) | {v['vendor']} {v['product']} - {v['name']} | {v['impact_en']} | {v['due']} | {epss} |")
+    md.append("")
+    if watchlist:
+        md.append("## Watchlist - high exploitation probability, not in KEV yet")
+        md.append("")
+        md.append("| CVE | Flaw | EPSS (30-day exploitation probability) |")
+        md.append("|---|---|---|")
+        for w in watchlist:
+            md.append(f"| [{w['cve']}]({w['link']}) | {w['vendor']} {w['product']} - {w['title']} | {round(w['epss'] * 100)}% |")
+        md.append("")
+    md.append("Data policy: aggregates only; individual websites are never named. License: MIT. Machine-readable: feed.json (schema zeront-feed/2), feed.xml (RSS), llms.txt.")
+    (ROOT / "feed.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+
     (ROOT / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=1), encoding="utf-8")
     (ROOT / "data.js").write_text("window.ZERONT_DATA = " + json.dumps(feed, ensure_ascii=False) + ";\n", encoding="utf-8")
 
