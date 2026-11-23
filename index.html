@@ -86,6 +86,11 @@ header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba
 .stat .n{font-family:var(--mono);font-size:1.45rem;font-weight:700;line-height:1}
 .stat .l{color:var(--mut);font-size:.83rem;line-height:1.35}
 @media (max-width:900px){.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+.htabs{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px}
+.htab{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.htab.dim{color:var(--dim);font-size:.62em;font-weight:600}
+.htab.dim:hover{color:var(--txt)}
+.htab:not(.dim){cursor:default}
 .kevscroll{max-height:660px;overflow-y:auto;border-radius:12px;scrollbar-width:thin}
 .kevscroll .thead{position:sticky;top:0;z-index:2}
 .row .imp .g{display:block;color:var(--dim);font-size:.74rem;font-weight:500;margin-top:3px;font-family:var(--mono)}
@@ -275,26 +280,25 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
   </section>
 
   <section id="kev">
-    <h2 data-vi="Top lỗ hổng đang hot - CISA KEV" data-en="Hot flaws right now - CISA KEV">Top lỗ hổng đang hot - CISA KEV</h2>
-    <p class="secsub" data-vi="KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này." data-en="CISA's KEV lists only flaws with proven in-the-wild exploitation - landing here means patch now. Vietnam impact counts exist only for the tracked flaws above; global KEV data carries no such figures.">KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này.</p>
+    <h2 class="htabs"><button class="htab on" id="tabKev" data-vi="Top lỗ hổng đang hot - CISA KEV" data-en="Hot flaws right now - CISA KEV">Top lỗ hổng đang hot - CISA KEV</button><button class="htab dim" id="tabWatch" data-vi="/ Lỗ hổng cần chú ý" data-en="/ Flaws to watch">/ Lỗ hổng cần chú ý</button></h2>
+    <p class="secsub" id="kevSub" data-vi="KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này." data-en="CISA's KEV lists only flaws with proven in-the-wild exploitation - landing here means patch now. Vietnam impact counts exist only for the tracked flaws above; global KEV data carries no such figures.">KEV của CISA chỉ liệt kê lỗ hổng đã có bằng chứng bị khai thác thật - lọt danh sách này là phải vá ngay. Số ảnh hưởng tại Việt Nam chỉ có cho các lỗi đang theo dõi ở mục trên; dữ liệu KEV toàn cầu không kèm con số này.</p>
+    <p class="secsub" id="watchSub" hidden data-vi="Chưa lọt danh mục KEV (CISA chưa xác nhận bị khai thác), nhưng xác suất bị khai thác trên toàn cầu thuộc nhóm cao nhất theo EPSS của FIRST - thường là ứng viên vào KEV trong thời gian tới. Canh để vá sớm, trước khi thành sự cố." data-en="Not in KEV yet (CISA has not confirmed exploitation), but their global exploitation probability ranks among the highest in FIRST's EPSS - often tomorrow's KEV entries. Watch these to patch early.">Chưa lọt danh mục KEV (CISA chưa xác nhận bị khai thác), nhưng xác suất bị khai thác trên toàn cầu thuộc nhóm cao nhất theo EPSS của FIRST - thường là ứng viên vào KEV trong thời gian tới. Canh để vá sớm, trước khi thành sự cố.</p>
+    <div id="kevView">
     <div class="controls">
       <input id="q" type="search" placeholder="Tìm theo mã CVE, hãng, sản phẩm...">
       <button class="chip on" data-f="all" data-vi="Tất cả" data-en="All">Tất cả</button>
       <button class="chip" data-f="week" data-vi="7 ngày qua" data-en="Last 7 days">7 ngày qua</button>
       <button class="chip" data-f="rw" data-vi="Dính mã độc tống tiền" data-en="Ransomware-linked">Dính mã độc tống tiền</button>
     </div>
-    <p class="gloss" data-vi="Cách đọc bảng: cột <b>Mức gấp</b> dựa trên hạn vá do CISA (cơ quan an ninh mạng của Mỹ) đặt ra - quá hạn nghĩa là lỗi đã bị tin tặc khai thác lâu ngoài đời thực, cần vá càng sớm càng tốt. Cột <b>Ảnh hưởng</b> là việc kẻ xấu làm được nếu khai thác thành công. Bấm vào từng dòng để xem chi tiết." data-en="How to read this table: <b>Urgency</b> follows the remediation deadline set by CISA (the US cybersecurity agency) - overdue means the flaw has been exploited in the wild for a long time, patch as soon as possible. <b>Impact</b> is what an attacker gains on success. Click any row for details.">Cách đọc bảng: cột <b>Mức gấp</b> dựa trên hạn vá do CISA (cơ quan an ninh mạng của Mỹ) đặt ra - quá hạn nghĩa là lỗi đã bị tin tặc khai thác lâu ngoài đời thực, cần vá càng sớm càng tốt. Cột <b>Ảnh hưởng</b> là việc kẻ xấu làm được nếu khai thác thành công. Bấm vào từng dòng để xem chi tiết.</p>
     <div class="count" id="count"></div>
     <div class="kevscroll">
-    <div class="thead"><span data-vi="Mức gấp" data-en="Urgency" data-tip-vi="Dựa trên hạn vá CISA: ngày CISA buộc các cơ quan Mỹ phải vá xong. Quá hạn = lỗi đã bị khai thác lâu, rất gấp." data-tip-en="Based on the CISA due date: the deadline US agencies must patch by. Overdue = exploited for a long time, very urgent.">Mức gấp</span><span data-vi="Lỗ hổng" data-en="Vulnerability">Lỗ hổng</span><span data-vi="Ảnh hưởng" data-en="Impact">Ảnh hưởng</span><span></span></div>
+    <div class="thead"><span data-vi="Mức gấp" data-en="Urgency" data-tip-vi="Theo hạn vá CISA: quá hạn = đã bị khai thác lâu, vá ngay." data-tip-en="By CISA due date: overdue = exploited for long, patch now.">Mức gấp</span><span data-vi="Lỗ hổng" data-en="Vulnerability" data-tip-vi="Tóm tắt dễ hiểu + tên gốc của hãng. Bấm dòng để xem chi tiết." data-tip-en="Plain summary + original vendor name. Click a row for details.">Lỗ hổng</span><span data-vi="Ảnh hưởng" data-en="Impact" data-tip-vi="Kẻ xấu làm được gì + vị trí top khai thác toàn cầu (EPSS)." data-tip-en="What the attacker gains + global exploitability rank (EPSS).">Ảnh hưởng</span><span></span></div>
     <div class="rows" id="rows"></div>
     </div>
-  </section>
-
-  <section id="watch">
-    <h2 data-vi="Lỗ hổng cần theo dõi" data-en="Flaws to watch">Lỗ hổng cần theo dõi</h2>
-    <p class="secsub" data-vi="Chưa lọt danh mục KEV (CISA chưa xác nhận bị khai thác), nhưng xác suất bị khai thác trên toàn cầu thuộc nhóm cao nhất theo EPSS của FIRST - đây thường là ứng viên vào KEV trong thời gian tới. Canh các lỗi này để vá sớm, trước khi chúng thành sự cố." data-en="Not in KEV yet (CISA has not confirmed exploitation), but their global exploitation probability ranks among the highest in FIRST's EPSS - often tomorrow's KEV entries. Watch these to patch early, before they become incidents.">Chưa lọt danh mục KEV (CISA chưa xác nhận bị khai thác), nhưng xác suất bị khai thác trên toàn cầu thuộc nhóm cao nhất theo EPSS của FIRST - đây thường là ứng viên vào KEV trong thời gian tới. Canh các lỗi này để vá sớm, trước khi chúng thành sự cố.</p>
+    </div>
+    <div id="watchView" hidden>
     <div class="wrows" id="wrows"></div>
+    </div>
   </section>
 
   <section id="sources">
@@ -596,6 +600,17 @@ function setLang(l){
 }
 document.getElementById('lv').addEventListener('click', function(){ setLang('vi'); });
 document.getElementById('le').addEventListener('click', function(){ setLang('en'); });
+function setKevTab(mode){
+  var watch = mode === 'watch';
+  document.getElementById('kevView').hidden = watch;
+  document.getElementById('watchView').hidden = !watch;
+  document.getElementById('kevSub').hidden = watch;
+  document.getElementById('watchSub').hidden = !watch;
+  document.getElementById('tabKev').classList.toggle('dim', watch);
+  document.getElementById('tabWatch').classList.toggle('dim', !watch);
+}
+document.getElementById('tabKev').addEventListener('click', function(){ setKevTab('kev'); });
+document.getElementById('tabWatch').addEventListener('click', function(){ setKevTab('watch'); });
 document.querySelectorAll('[data-tip-vi]').forEach(function(el){ el.setAttribute('data-tip', el.getAttribute('data-tip-vi')); });
 renderAll();
 </script>
