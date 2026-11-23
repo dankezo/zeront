@@ -37,12 +37,46 @@
         <div class="zr-stat"><span class="n" style="color:var(--red,#e63946)">830</span><span class="l" data-vi="trang tại Việt Nam đã xác minh dính lỗi nginx2root" data-en="verified Vietnam sites affected by nginx2root">trang tại Việt Nam đã xác minh dính lỗi nginx2root</span></div>
         <div class="zr-stat"><span class="n" id="zr-n-sites">61.169</span><span class="l" data-vi="trang web đang được hệ thống quét theo dõi" data-en="websites tracked by the scanning system">trang web đang được hệ thống quét theo dõi</span></div>
         <a class="btn" style="background:var(--green,#2fbf71);color:#06281a;justify-content:center" href="/radar/" data-vi="Mở radar Zeront" data-en="Open the Zeront radar">Mở radar Zeront</a>
+        <button class="btn btn-ghost" id="zr-copy" style="justify-content:center" data-vi="Sao chép prompt cho agent của bạn" data-en="Copy the prompt for your agent">Sao chép prompt cho agent của bạn</button>
+        <p style="color:var(--muted2,#7e93a8);font-size:.83rem" data-vi="Dán prompt vào ChatGPT/Claude của bạn: agent tự quét trang của bạn theo radar này và canh tin mới mỗi ngày." data-en="Paste the prompt into your ChatGPT/Claude: the agent checks your site against this radar and watches for new flaws daily.">Dán prompt vào ChatGPT/Claude của bạn: agent tự quét trang của bạn theo radar này và canh tin mới mỗi ngày.</p>
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
+  var PROMPTS = {
+  vi: ['Bạn là trợ lý canh lỗ hổng bảo mật cho website của tôi.',
+  'Website của tôi: [ĐIỀN ĐỊA CHỈ WEB CỦA BẠN - nếu tôi để trống, hãy hỏi tôi trước]',
+  '',
+  'Việc của bạn, mỗi lần chạy:',
+  '1. Tải dữ liệu mới nhất từ radar Zeront: https://secuscan.dannyphan.me/radar/feed.json (nếu lỗi, dùng bản dự phòng https://dankezo.github.io/zeront/feed.json).',
+  '2. Nhận diện công nghệ website của tôi từ dấu vết công khai: máy chủ web và phiên bản, CMS, framework, thư viện đang dùng.',
+  '3. Đối chiếu với các mục "featured" và "kev_recent" trong dữ liệu: có lỗi nào dính đúng dải phiên bản trang tôi đang chạy không?',
+  '4. Nếu có: báo ngay mã CVE, lý do đối chiếu, mức độ nghiêm trọng và cách vá cụ thể. Nếu không có lỗi mới liên quan: chỉ nói ngắn gọn là không có gì mới.',
+  '5. Chỉ cảnh báo khi đối chiếu chắc chắn. Không suy đoán, không báo động giả.',
+  '',
+  'Ngay bây giờ: chạy kiểm tra lần đầu và báo kết quả cho tôi. Sau đó, nếu nền tảng của bạn hỗ trợ chạy theo lịch, hãy đề xuất đặt lịch kiểm tra mỗi ngày một lần vào buổi sáng, và chỉ làm phiền tôi khi có lỗi dính tới website của tôi.'].join('\n'),
+  en: ['You are the security-vulnerability watcher for my website.',
+  'My website: [FILL IN YOUR WEBSITE ADDRESS - if I leave this blank, ask me first]',
+  '',
+  'Your job, on every run:',
+  '1. Fetch the latest data from the Zeront radar: https://secuscan.dannyphan.me/radar/feed.json (fallback: https://dankezo.github.io/zeront/feed.json).',
+  '2. Identify my website technology from public fingerprints: web server and version, CMS, frameworks, libraries in use.',
+  '3. Cross-check the "featured" and "kev_recent" items in the data: does any flaw affect the exact version range my site runs?',
+  '4. If yes: report the CVE id, the matching evidence, severity, and the concrete fix. If nothing new matches: say briefly that there is nothing new.',
+  '5. Warn only on a confident match. No guessing, no false alarms.',
+  '',
+  'Right now: run the first check and report back. Afterwards, if your platform supports scheduled runs, propose a daily morning check and only interrupt me when a flaw matches my website.'].join('\n')};
+  var btn = document.getElementById('zr-copy');
+  if(btn){ btn.addEventListener('click', function(){
+    var l = (window.LANG === 'en') ? 'en' : 'vi';
+    var txt = PROMPTS[l];
+    var done = function(){ var old = btn.textContent; btn.textContent = (l === 'vi' ? 'Đã sao chép' : 'Copied'); setTimeout(function(){ btn.textContent = old; }, 2000); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(function(){ fb(); done(); }); }
+    else { fb(); done(); }
+    function fb(){ var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); }
+  }); }
   fetch('/radar/feed.json').then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){
     var loc = (window.LANG==='en') ? 'en-US' : 'vi-VN';
     var w = document.getElementById('zr-n-week'); if(w && d.stats) w.textContent = d.stats.kev_new_this_week;

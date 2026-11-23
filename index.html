@@ -126,6 +126,15 @@ h2{font-size:1.55rem;font-weight:800;margin-bottom:6px}
 pre{background:#0a0f16;border:1px solid var(--line);border-radius:10px;padding:14px;font-family:var(--mono);font-size:.78rem;overflow-x:auto;color:#bfe9d2;margin-top:10px}
 .ep{font-family:var(--mono);font-size:.85rem;color:#ffc65c}
 
+.promptbox{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.promptbox h3{font-size:1.08rem;margin-bottom:8px}
+.promptbox p{color:var(--mut);font-size:.93rem;max-width:78ch}
+.promptbox pre{max-height:190px;overflow-y:auto;white-space:pre-wrap;color:#cfe3d4}
+.copyrow{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.copybtn{background:var(--green);color:#06281a;border:0;font:inherit;font-weight:700;font-size:.93rem;padding:11px 20px;border-radius:10px;cursor:pointer}
+.copybtn:hover{filter:brightness(1.08)}
+.copynote{color:var(--dim);font-size:.83rem}
+
 .policy{margin-top:26px;border:1px solid rgba(245,166,35,.45);background:rgba(245,166,35,.07);border-radius:14px;padding:18px 22px;color:#f3ddba;font-size:.93rem}
 .policy b{color:var(--amber)}
 
@@ -225,6 +234,15 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 40px;colo
 }</pre>
       </div>
     </div>
+    <div class="promptbox">
+      <h3 data-vi="Prompt sẵn cho agent của bạn" data-en="Ready-made prompt for your agent">Prompt sẵn cho agent của bạn</h3>
+      <p data-vi="Không cần cài thêm gì: sao chép prompt này, dán vào agent bạn đang dùng (ChatGPT, Claude, Gemini...), điền địa chỉ web của bạn. Agent sẽ tự đối chiếu trang của bạn với radar Zeront ngay bây giờ, và nếu nền tảng hỗ trợ chạy theo lịch, nó sẽ tự kiểm tra mỗi ngày và chỉ báo khi có lỗi dính tới trang của bạn." data-en="Nothing to install: copy this prompt, paste it into the agent you already use (ChatGPT, Claude, Gemini...), and fill in your website address. The agent will check your site against the Zeront radar right away, and if its platform supports scheduling, it will re-check daily and only speak up when a flaw matches your site.">Không cần cài thêm gì: sao chép prompt này, dán vào agent bạn đang dùng (ChatGPT, Claude, Gemini...), điền địa chỉ web của bạn. Agent sẽ tự đối chiếu trang của bạn với radar Zeront ngay bây giờ, và nếu nền tảng hỗ trợ chạy theo lịch, nó sẽ tự kiểm tra mỗi ngày và chỉ báo khi có lỗi dính tới trang của bạn.</p>
+      <pre id="promptPrev"></pre>
+      <div class="copyrow">
+        <button class="copybtn" id="copyBtn" data-vi="Sao chép prompt" data-en="Copy the prompt">Sao chép prompt</button>
+        <span class="copynote" id="copyNote" data-vi="Miễn phí - dữ liệu radar cập nhật mỗi ngày, agent của bạn chỉ việc đọc." data-en="Free - the radar data updates daily, your agent just reads it.">Miễn phí - dữ liệu radar cập nhật mỗi ngày, agent của bạn chỉ việc đọc.</span>
+      </div>
+    </div>
     <div class="policy"><b data-vi="Chính sách dữ liệu:" data-en="Data policy:">Chính sách dữ liệu:</b> <span data-vi="Zeront chỉ công bố số liệu tổng hợp (bao nhiêu trang bị ảnh hưởng), không bao giờ công bố tên, địa chỉ hay tình trạng vá của từng trang web cụ thể. Tin CVE lấy từ nguồn công khai (CISA KEV, NVD) mà kẻ tấn công vốn đã theo dõi - trang này không cho họ thêm mục tiêu nào, chỉ giúp phe phòng thủ biết sớm và biết quy mô." data-en="Zeront publishes aggregate figures only (how many sites are affected), never the name, address or patch status of any individual website. CVE intel comes from public sources (CISA KEV, NVD) that attackers already monitor - this page gives them no new targets, it only helps defenders learn earlier and know the scale.">Zeront chỉ công bố số liệu tổng hợp (bao nhiêu trang bị ảnh hưởng), không bao giờ công bố tên, địa chỉ hay tình trạng vá của từng trang web cụ thể. Tin CVE lấy từ nguồn công khai (CISA KEV, NVD) mà kẻ tấn công vốn đã theo dõi - trang này không cho họ thêm mục tiêu nào, chỉ giúp phe phòng thủ biết sớm và biết quy mô.</span></div>
   </section>
 
@@ -295,7 +313,48 @@ function renderUpd(){
   document.getElementById('upd').textContent = T[lang].upd + ' ' + g + ' · CISA KEV + SecuScan';
   document.getElementById('q').placeholder = T[lang].ph;
 }
-function renderAll(){ renderStats(); renderCards(); renderRows(); renderUpd(); }
+var PROMPTS = {
+vi: [
+'Bạn là trợ lý canh lỗ hổng bảo mật cho website của tôi.',
+'Website của tôi: [ĐIỀN ĐỊA CHỈ WEB CỦA BẠN - nếu tôi để trống, hãy hỏi tôi trước]',
+'',
+'Việc của bạn, mỗi lần chạy:',
+'1. Tải dữ liệu mới nhất từ radar Zeront: https://secuscan.dannyphan.me/radar/feed.json (nếu lỗi, dùng bản dự phòng https://dankezo.github.io/zeront/feed.json).',
+'2. Nhận diện công nghệ website của tôi từ dấu vết công khai: máy chủ web và phiên bản, CMS, framework, thư viện đang dùng.',
+'3. Đối chiếu với các mục "featured" và "kev_recent" trong dữ liệu: có lỗi nào dính đúng dải phiên bản trang tôi đang chạy không?',
+'4. Nếu có: báo ngay mã CVE, lý do đối chiếu, mức độ nghiêm trọng và cách vá cụ thể. Nếu không có lỗi mới liên quan: chỉ nói ngắn gọn là không có gì mới.',
+'5. Chỉ cảnh báo khi đối chiếu chắc chắn. Không suy đoán, không báo động giả.',
+'',
+'Ngay bây giờ: chạy kiểm tra lần đầu và báo kết quả cho tôi. Sau đó, nếu nền tảng của bạn hỗ trợ chạy theo lịch, hãy đề xuất đặt lịch kiểm tra mỗi ngày một lần vào buổi sáng, và chỉ làm phiền tôi khi có lỗi dính tới website của tôi.'
+].join('\n'),
+en: [
+'You are the security-vulnerability watcher for my website.',
+'My website: [FILL IN YOUR WEBSITE ADDRESS - if I leave this blank, ask me first]',
+'',
+'Your job, on every run:',
+'1. Fetch the latest data from the Zeront radar: https://secuscan.dannyphan.me/radar/feed.json (fallback: https://dankezo.github.io/zeront/feed.json).',
+'2. Identify my website technology from public fingerprints: web server and version, CMS, frameworks, libraries in use.',
+'3. Cross-check the "featured" and "kev_recent" items in the data: does any flaw affect the exact version range my site runs?',
+'4. If yes: report the CVE id, the matching evidence, severity, and the concrete fix. If nothing new matches: say briefly that there is nothing new.',
+'5. Warn only on a confident match. No guessing, no false alarms.',
+'',
+'Right now: run the first check and report back. Afterwards, if your platform supports scheduled runs, propose a daily morning check and only interrupt me when a flaw matches my website.'
+].join('\n')};
+function renderPrompt(){ document.getElementById('promptPrev').textContent = PROMPTS[lang]; }
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var btn = document.getElementById('copyBtn');
+  var done = function(){ var old = btn.textContent; btn.textContent = (lang==='vi' ? 'Đã sao chép' : 'Copied'); setTimeout(function(){ btn.textContent = old; }, 2000); };
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(PROMPTS[lang]).then(done).catch(function(){ fallbackCopy(); done(); }); }
+  else { fallbackCopy(); done(); }
+  function fallbackCopy(){
+    var ta = document.createElement('textarea');
+    ta.value = PROMPTS[lang]; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+});
+function renderAll(){ renderStats(); renderCards(); renderRows(); renderUpd(); renderPrompt(); }
 document.querySelectorAll('.chip').forEach(function(c){
   c.addEventListener('click', function(){
     document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on');});

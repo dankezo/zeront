@@ -44,6 +44,8 @@ curl https://secuscan.dannyphan.me/radar/feed.json
 
 Agents, bots and internal tools may crawl and reuse the feed freely under the MIT license. Crediting Zeront / SecuScan is appreciated.
 
+**No agent of your own tooling?** The radar page has a **"Copy the prompt"** button: paste it into ChatGPT, Claude or any assistant, fill in your website address, and that agent will check your site against the radar immediately - and, where the platform supports scheduling, re-check daily and only interrupt you when a flaw matches your stack.
+
 ## Data policy - the double-edged sword, handled
 
 Publishing fresh vulnerability intel can help attackers as well as defenders. Zeront draws a hard line:
