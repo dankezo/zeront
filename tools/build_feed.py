@@ -36,6 +36,70 @@ def cve_link(cve):
     return f"https://www.cve.org/CVERecord?id={cve}"
 
 
+EPSS_URL = "https://api.first.org/data/v1/epss"
+CVEAWG_URL = "https://cveawg.mitre.org/api/cve/"
+
+
+def _get_json(url, timeout=30):
+    req = urllib.request.Request(url, headers={"User-Agent": "zeront-feed-builder/1.0"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.load(r)
+
+
+def fetch_epss(cves):
+    """EPSS exploitation probability (FIRST.org) for a list of CVEs.
+    Returns {cve: (epss 0..1, percentile 0..100)}. Empty dict on failure."""
+    if not cves:
+        return {}
+    try:
+        data = _get_json(f"{EPSS_URL}?cve={','.join(cves)}&envelope=false")
+        out = {}
+        for row in data if isinstance(data, list) else []:
+            out[row["cve"]] = (round(float(row["epss"]), 4), round(float(row["percentile"]) * 100, 1))
+        return out
+    except Exception as e:
+        print(f"EPSS fetch failed ({e}); continuing without EPSS", file=sys.stderr)
+        return {}
+
+
+def fetch_watchlist(kev_ids, limit=6):
+    """High-EPSS CVEs that are NOT in CISA KEV yet: flaws the world is
+    likely to exploit soon but CISA has not confirmed. Details verified
+    against the CVE.org record (CVE Services API)."""
+    try:
+        data = _get_json(f"{EPSS_URL}?epss-gt=0.90&limit=60&envelope=false")
+    except Exception as e:
+        print(f"EPSS top fetch failed ({e}); watchlist empty", file=sys.stderr)
+        return []
+    cands = [r for r in (data if isinstance(data, list) else []) if r["cve"] not in kev_ids]
+    cands.sort(key=lambda r: float(r["epss"]), reverse=True)
+    out = []
+    for r in cands:
+        if len(out) >= limit:
+            break
+        cve = r["cve"]
+        try:
+            rec = _get_json(CVEAWG_URL + cve)
+            cna = rec.get("containers", {}).get("cna", {})
+            title = cna.get("title") or ""
+            descs = [d.get("value", "") for d in cna.get("descriptions", []) if d.get("lang", "en").startswith("en")]
+            desc = (descs[0] if descs else "")[:220]
+            aff = cna.get("affected") or [{}]
+            vendor = aff[0].get("vendor", "") if aff else ""
+            product = aff[0].get("product", "") if aff else ""
+            published = (rec.get("cveMetadata", {}).get("datePublished") or "")[:10]
+        except Exception:
+            continue  # unverifiable record: skip rather than publish blind
+        out.append({
+            "cve": cve, "title": title, "desc": desc,
+            "vendor": vendor, "product": product, "published": published,
+            "epss": round(float(r["epss"]), 4),
+            "epss_pct": round(float(r["percentile"]) * 100, 1),
+            "link": cve_link(cve),
+        })
+    return out
+
+
 # Deterministic impact tagger: maps vulnerability-name keywords to a short,
 # plain-language consequence label (vi + en). Order matters - first match wins.
 IMPACT_RULES = [
@@ -146,6 +210,20 @@ def main():
                 "link": cve_link(v["cve"]),
             })
 
+    # Global exploitation probability (EPSS) for every listed flaw.
+    epss_map = fetch_epss([v["cve"] for v in kev_recent])
+    for v in kev_recent:
+        e = epss_map.get(v["cve"])
+        v["epss"] = e[0] if e else None
+        v["epss_pct"] = e[1] if e else None
+
+    kev_ids = set()
+    if kev:
+        kev_ids = {v.get("cveID") for v in kev.get("vulnerabilities", [])}
+    else:
+        kev_ids = {v["cve"] for v in kev_recent}
+    watchlist = fetch_watchlist(kev_ids)
+
     week_cutoff = (now - timedelta(days=7)).strftime("%Y-%m-%d")
     kev_new_week = sum(1 for v in kev_recent if v["added"] >= week_cutoff)
 
@@ -166,9 +244,11 @@ def main():
         },
         "featured": featured,
         "kev_recent": kev_recent,
+        "watchlist": watchlist,
         "sources": [
             {"name": "CISA Known Exploited Vulnerabilities Catalog", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"},
             {"name": "NVD - National Vulnerability Database", "url": "https://nvd.nist.gov/"},
+            {"name": "FIRST EPSS - global exploitation probability", "url": "https://www.first.org/epss/"},
             {"name": "SecuScan aggregate scan figures (Vietnam)", "url": "https://secuscan.dannyphan.me/"},
         ],
     }

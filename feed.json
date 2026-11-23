@@ -1,6 +1,6 @@
 {
  "schema": "zeront-feed/2",
- "generated_at": "2026-11-23T04:11:15Z",
+ "generated_at": "2026-11-23T04:25:23Z",
  "generator": "zeront (by SecuScan)",
  "kev_source": "live",
  "kev_catalog_released": "2026-11-20T17:48:39.1516Z",
@@ -94,7 +94,9 @@
    "impact_vi": "Chiếm quyền điều khiển máy chủ",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở Apache Roller (phần mềm làm trang blog/tin tức), tại cổng nhận dữ liệu XML-RPC. Kẻ xấu không cần đăng nhập, chỉ cần gửi dữ liệu giả mạo là chạy được lệnh tùy ý trên máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-129448"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-129448",
+   "epss": 0.0546,
+   "epss_pct": 92.9
   },
   {
    "cve": "CVE-2026-123890",
@@ -109,7 +111,9 @@
    "impact_vi": "Vượt qua màn hình đăng nhập",
    "impact_en": "Authentication bypass",
    "plain_vi": "Lỗ hổng nằm ở VMware vCenter (phần mềm quản lý các máy chủ ảo), ở khâu kiểm tra đăng nhập. Kẻ xấu chỉ cần kết nối được vào mạng là qua mặt được bước đăng nhập, vào hệ thống mà không cần mật khẩu.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123890"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123890",
+   "epss": 0.0353,
+   "epss_pct": 89.5
   },
   {
    "cve": "CVE-2025-42884",
@@ -124,7 +128,9 @@
    "impact_vi": "Đọc, sửa dữ liệu máy chủ",
    "impact_en": "Query injection",
    "plain_vi": "Lỗ hổng nằm ở SAP NetWeaver (phần mềm quản lý doanh nghiệp), ở khâu xử lý câu truy vấn dữ liệu. Kẻ xấu không cần đăng nhập, chèn dữ liệu giả vào câu truy vấn là xem được hoặc sửa đổi thông tin trên máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2025-42884"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2025-42884",
+   "epss": 0.0071,
+   "epss_pct": 54.6
   },
   {
    "cve": "CVE-2026-76466",
@@ -139,7 +145,9 @@
    "impact_vi": "Lấy quyền cao nhất thiết bị",
    "impact_en": "Hard-coded credentials",
    "plain_vi": "Thiết bị Cisco Expressway (dùng cho họp và gọi video) bị cài sẵn một thông tin đăng nhập cố định không thay được. Kẻ xấu biết thông tin này và kết nối được vào mạng là chạy được lệnh với quyền cao nhất (root) trên thiết bị trong cụm.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-76466"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-76466",
+   "epss": 0.0219,
+   "epss_pct": 82.9
   },
   {
    "cve": "CVE-2024-10441",
@@ -154,7 +162,9 @@
    "impact_vi": "Chạy lệnh từ xa trên máy",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm trong phần mềm quản lý ổ lưu trữ mạng Synology, ở một tiến trình chạy nền của hệ thống. Kẻ xấu từ xa gửi dữ liệu giả mạo là chạy được lệnh tùy ý trên thiết bị lưu trữ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2024-10441"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2024-10441",
+   "epss": 0.0313,
+   "epss_pct": 88.2
   },
   {
    "cve": "CVE-2026-40217",
@@ -169,7 +179,9 @@
    "impact_vi": "Thực thi lệnh trên máy chủ",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở LiteLLM (cổng kết nối tới các dịch vụ AI), tại một địa chỉ chức năng thử nghiệm không được bảo vệ. Kẻ xấu từ xa truy cập vào địa chỉ đó là chạy được lệnh tùy ý trên máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-40217"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-40217",
+   "epss": 0.78,
+   "epss_pct": 99.6
   },
   {
    "cve": "CVE-2026-90817",
@@ -184,7 +196,9 @@
    "impact_vi": "Thực thi mã trên máy chủ",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở REDCap (phần mềm thu thập dữ liệu nghiên cứu). Kẻ xấu không cần đăng nhập, chỉ cần gửi yêu cầu web được chế sẵn là chèn và chạy được lệnh tùy ý trên máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-90817"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-90817",
+   "epss": 0.3433,
+   "epss_pct": 98.4
   },
   {
    "cve": "CVE-2026-90436",
@@ -199,7 +213,9 @@
    "impact_vi": "Chạy mã độc từ xa",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở Apache Axis (thư viện dùng để các hệ thống trao đổi dữ liệu với nhau). Kẻ xấu không cần đăng nhập, gửi một tin nhắn lỗi giả mạo là bắt hệ thống nạp và chạy mã theo ý mình.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-90436"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-90436",
+   "epss": 0.0381,
+   "epss_pct": 90.3
   },
   {
    "cve": "CVE-2026-115731",
@@ -214,7 +230,9 @@
    "impact_vi": "Chiếm máy chủ quản lý chính",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở Puppet Enterprise (phần mềm quản lý cấu hình cho nhiều máy chủ), ở khâu xử lý báo cáo từ các máy con. Một máy con có chứng chỉ hợp lệ gửi dữ liệu giả mạo là chạy được lệnh trên máy chủ quản lý trung tâm.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-115731"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-115731",
+   "epss": 0.0123,
+   "epss_pct": 69.7
   },
   {
    "cve": "CVE-2026-114713",
@@ -229,7 +247,9 @@
    "impact_vi": "Chèn lệnh với quyền máy chủ",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở UnrealIRCd (phần mềm chạy phòng chat IRC). Khi mạng chat có từ hai máy chủ liên kết trở lên, người dùng bình thường cũng chèn được lệnh vốn chỉ dành cho máy chủ, và lệnh đó được chạy với quyền của máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-114713"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-114713",
+   "epss": 0.0115,
+   "epss_pct": 67.7
   },
   {
    "cve": "CVE-2026-123039",
@@ -244,7 +264,9 @@
    "impact_vi": "Vào phần không được phép",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở nhiều sản phẩm tường lửa và quản lý bảo mật của Check Point: hệ thống cấp quyền sai cho những phần quan trọng vốn phải được bảo vệ chặt. Nhờ đó, kẻ xấu có thể chạm tới những phần mà bình thường không được phép truy cập.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123039"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123039",
+   "epss": 0.0327,
+   "epss_pct": 88.7
   },
   {
    "cve": "CVE-2026-124194",
@@ -259,7 +281,9 @@
    "impact_vi": "Giả mạo danh tính qua mạng",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở Microsoft Outlook (phần mềm đọc email): một hành động nguy hiểm được thực hiện mà không hề hỏi ý kiến người dùng trước. Kẻ xấu lợi dụng điều này để giả mạo danh tính qua mạng.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-124194"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-124194",
+   "epss": 0.0194,
+   "epss_pct": 80.7
   },
   {
    "cve": "CVE-2026-111793",
@@ -274,7 +298,9 @@
    "impact_vi": "Chuyển đổi loại tài liệu cấm",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở công cụ chuyển đổi file media đi kèm hộp thư webmail của Openwave. Người dùng đã đăng nhập, nếu đi đường vòng ngoài giao diện webmail, có thể bắt hệ thống xử lý và chuyển đổi cả những loại tài liệu vốn không được phép.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-111793"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-111793",
+   "epss": 0.0117,
+   "epss_pct": 68.2
   },
   {
    "cve": "CVE-2026-20320",
@@ -289,7 +315,9 @@
    "impact_vi": "Đọc trộm thông tin cấu hình",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở Cisco BroadWorks (hệ thống tổng đài điện thoại qua mạng), ở khâu đọc dữ liệu XML. Kẻ xấu không cần đăng nhập, gửi file XML giả mạo là đọc được thông tin cấu hình nhạy cảm của hệ thống.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-20320"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-20320",
+   "epss": 0.0168,
+   "epss_pct": 77.6
   },
   {
    "cve": "CVE-2026-111560",
@@ -304,7 +332,9 @@
    "impact_vi": "Chèn và chạy lệnh hệ thống",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở nhiều thiết bị bảo mật của Barracuda (lọc email, tường lửa web, cân bằng tải, lưu trữ email...). Kẻ xấu chèn được lệnh của hệ điều hành vào dữ liệu gửi lên, khiến thiết bị thực thi lệnh đó.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-111560"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-111560",
+   "epss": 0.6377,
+   "epss_pct": 99.2
   },
   {
    "cve": "CVE-2026-116606",
@@ -319,7 +349,9 @@
    "impact_vi": "Qua mặt đăng nhập trái phép",
    "impact_en": "Authentication bypass",
    "plain_vi": "Lỗ hổng nằm ở Barracuda Email Security Gateway (thiết bị lọc email), ở khâu kiểm tra đăng nhập. Kẻ xấu không cần tài khoản, đi đường vòng để gọi chức năng nhập cấu hình và nạp một bản cấu hình giả mạo vào thiết bị.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-116606"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-116606",
+   "epss": 0.7452,
+   "epss_pct": 99.5
   },
   {
    "cve": "CVE-2026-125350",
@@ -334,7 +366,9 @@
    "impact_vi": "Chạy mã độc qua trang web",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở nhân trình duyệt Chromium (nền của Chrome và nhiều trình duyệt khác), ở phần xử lý XML. Kẻ xấu tạo một trang web được chế sẵn, ai mở trang đó có thể bị chạy mã độc ngay bên trong trình duyệt.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-125350"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-125350",
+   "epss": 0.068,
+   "epss_pct": 94.2
   },
   {
    "cve": "CVE-2026-102895",
@@ -349,7 +383,9 @@
    "impact_vi": "Lấy quyền quản trị trái phép",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở GPUStack (phần mềm quản lý cụm máy chạy AI), ở khâu kiểm tra đăng nhập. Kẻ xấu không cần tài khoản vẫn vào được với quyền quản trị: sửa người dùng và mô hình AI, tự tạo khóa truy cập quản trị dùng lâu dài, và xem được bí mật của các máy con lẫn của nhà cung cấp đám mây.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-102895"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-102895",
+   "epss": 0.1879,
+   "epss_pct": 97.4
   },
   {
    "cve": "CVE-2026-123158",
@@ -364,7 +400,9 @@
    "impact_vi": "Vượt qua kiểm tra đăng nhập",
    "impact_en": "Authentication bypass",
    "plain_vi": "Lỗ hổng nằm ở OpenSSH (công cụ đăng nhập vào máy chủ từ xa) khi chạy trên Linux. Do chương trình xử lý sai một mã kết quả trả về, kẻ xấu có thể qua mặt được bước kiểm tra đăng nhập.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123158"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123158",
+   "epss": 0.9554,
+   "epss_pct": 99.9
   },
   {
    "cve": "CVE-2026-116779",
@@ -379,7 +417,9 @@
    "impact_vi": "Chèn mã, điều khiển cuộc gọi",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở FreeSWITCH (phần mềm tổng đài điện thoại qua mạng). Kẻ xấu chèn được mã độc để xem trộm cấu hình và thông tin đăng nhập, điều khiển các cuộc gọi tùy ý và chạy lệnh trên hệ thống.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-116779"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-116779",
+   "epss": 0.4411,
+   "epss_pct": 98.8
   },
   {
    "cve": "CVE-2026-123218",
@@ -394,7 +434,9 @@
    "impact_vi": "Leo thang đặc quyền trái phép",
    "impact_en": "Privilege escalation",
    "plain_vi": "Lỗ hổng nằm ở IBM Aspera Faspex (phần mềm truyền file tốc độ cao), ở khâu phân quyền người dùng. Người dùng đã đăng nhập gửi một tin nhắn được chế sẵn là vượt qua được bước kiểm tra quyền, tự nâng quyền của mình lên cao hơn mức được phép.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123218"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123218",
+   "epss": 0.0101,
+   "epss_pct": 64.1
   },
   {
    "cve": "CVE-2026-19868",
@@ -409,7 +451,9 @@
    "impact_vi": "Vòng qua kiểm soát đăng nhập",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở SonicOS SSLVPN (cổng kết nối làm việc từ xa của tường lửa SonicWall): hệ thống chỉ kiểm tra một lớp xác thực duy nhất. Người có thông tin đăng nhập của một cách đăng nhập khác có thể vòng qua lớp kiểm soát đăng nhập tập trung (SAML) của công ty.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-19868"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-19868",
+   "epss": 0.0804,
+   "epss_pct": 94.9
   },
   {
    "cve": "CVE-2024-27834",
@@ -424,7 +468,9 @@
    "impact_vi": "Vượt khóa bảo vệ hệ thống",
    "impact_en": "Authentication bypass",
    "plain_vi": "Lỗ hổng nằm ở cơ chế xác thực của các hệ điều hành Apple (iOS, macOS, Safari, tvOS, watchOS). Kẻ xấu đã đọc và ghi được dữ liệu trong máy có thể vượt qua một lớp khóa bảo vệ quan trọng của hệ thống (pointer authentication, cơ chế chống giả mạo địa chỉ trong bộ nhớ).",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2024-27834"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2024-27834",
+   "epss": 0.0156,
+   "epss_pct": 75.8
   },
   {
    "cve": "CVE-2026-119977",
@@ -439,7 +485,55 @@
    "impact_vi": "Chạy mã trên máy chủ web",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở nhân WordPress (phần mềm làm website rất phổ biến), xuất hiện trong lúc trang web đang tự nâng cấp. Kẻ xấu không cần đăng nhập, tranh thủ đúng khoảng thời gian ngắn lúc nâng cấp và đoán trước được vị trí file tạm là chạy được mã trên máy chủ.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-119977"
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-119977",
+   "epss": 0.0805,
+   "epss_pct": 94.9
+  }
+ ],
+ "watchlist": [
+  {
+   "cve": "CVE-2025-53771",
+   "title": "Microsoft SharePoint Server Spoofing Vulnerability",
+   "desc": "Improper authentication in Microsoft Office SharePoint allows an unauthorized attacker to perform spoofing over a network.",
+   "vendor": "Microsoft",
+   "product": "Microsoft SharePoint Enterprise Server 2016",
+   "published": "2025-07-20",
+   "epss": 0.9989,
+   "epss_pct": 100.0,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2025-53771"
+  },
+  {
+   "cve": "CVE-2026-43284",
+   "title": "xfrm: esp: avoid in-place decrypt on shared skb frags",
+   "desc": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfrm: esp: avoid in-place decrypt on shared skb frags\n\nMSG_SPLICE_PAGES can attach pages from a pipe directly to an skb. TCP\nmarks such skbs with SKBFL",
+   "vendor": "Linux",
+   "product": "Linux",
+   "published": "2026-05-08",
+   "epss": 0.9922,
+   "epss_pct": 99.9,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-43284"
+  },
+  {
+   "cve": "CVE-2026-43500",
+   "title": "rxrpc: Also unshare DATA/RESPONSE packets when paged frags are present",
+   "desc": "In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: Also unshare DATA/RESPONSE packets when paged frags are present\n\nThe DATA-packet handler in rxrpc_input_call_event() and the RESPONSE\nhandler in",
+   "vendor": "Linux",
+   "product": "Linux",
+   "published": "2026-05-11",
+   "epss": 0.9412,
+   "epss_pct": 99.9,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-43500"
+  },
+  {
+   "cve": "CVE-2025-59528",
+   "title": "Flowise has Remote Code Execution vulnerability",
+   "desc": "Flowise is a drag & drop user interface to build a customized large language model flow. In version 3.0.5, Flowise is vulnerable to remote code execution. The CustomMCP node allows users to input configuration settings f",
+   "vendor": "FlowiseAI",
+   "product": "Flowise",
+   "published": "2025-09-22",
+   "epss": 0.9177,
+   "epss_pct": 99.8,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2025-59528"
   }
  ],
  "sources": [
@@ -450,6 +544,10 @@
   {
    "name": "NVD - National Vulnerability Database",
    "url": "https://nvd.nist.gov/"
+  },
+  {
+   "name": "FIRST EPSS - global exploitation probability",
+   "url": "https://www.first.org/epss/"
   },
   {
    "name": "SecuScan aggregate scan figures (Vietnam)",
