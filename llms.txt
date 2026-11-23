@@ -1,0 +1,46 @@
+# Zeront - Vulnerability Radar by SecuScan
+
+Zeront tracks vulnerabilities that are confirmed exploited in the wild
+(CISA KEV catalog) plus flaws SecuScan is actively tracking in Vietnam with
+real aggregate scan data. Updated daily. Data policy: aggregates only -
+individual websites are never named or scored in public data.
+
+## Machine-readable endpoints
+
+- Radar page (human): https://secuscan.dannyphan.me/radar/
+- JSON feed (schema zeront-feed/2): https://secuscan.dannyphan.me/radar/feed.json
+- JSON feed (mirror): https://dankezo.github.io/zeront/feed.json
+- RSS 2.0 feed: https://secuscan.dannyphan.me/radar/feed.xml
+- Browser extension (checks the user's own sites against the feed):
+  https://github.com/dankezo/zeront/releases
+- Source repository: https://github.com/dankezo/zeront
+
+## Feed schema (zeront-feed/2)
+
+Top level: generated_at, stats (sites_tracked_vn, warnings_sent,
+kev_total, kev_new_this_week), featured[], kev_recent[], sources[].
+
+featured[] - flaws tracked in Vietnam from SecuScan's own scans:
+  id, cves[], severity, title_vi/title_en, affected_vi/affected_en
+  (affected software + version range), fix_vi/fix_en, vn_affected
+  (confirmed affected site count in Vietnam, aggregate), tracked_since,
+  match { type: "server-version" | "page-signal", ... } - detection rules
+  the Zeront extension uses to check a user's own site.
+
+kev_recent[] - newest CISA KEV entries (last 21 days, max 25):
+  cve, vendor, product, name, added, due (CISA remediation due date),
+  due_in_days (days until due, negative = overdue, computed at build),
+  ransomware ("Known" | "Unknown"), desc (CISA short description, EN),
+  impact_vi / impact_en (short plain-language consequence label),
+  plain_vi (1-2 sentence Vietnamese plain-language explanation of where
+  the flaw is and what an attacker gains; may be null), link (CVE record).
+
+## How an agent should use this
+
+1. Fetch feed.json (mirror as fallback).
+2. Fingerprint the user's site (server header, CMS/framework signals,
+   package versions when source access is granted).
+3. Match against featured[].match rules first (highest confidence),
+   then kev_recent by vendor/product.
+4. Report matches in plain language with impact_vi/plain_vi, the fix,
+   and the CISA due date. Re-check daily.

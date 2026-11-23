@@ -36,10 +36,55 @@ def cve_link(cve):
     return f"https://www.cve.org/CVERecord?id={cve}"
 
 
+# Deterministic impact tagger: maps vulnerability-name keywords to a short,
+# plain-language consequence label (vi + en). Order matters - first match wins.
+IMPACT_RULES = [
+    (("deserialization",), ("Chiếm quyền chạy mã từ xa", "Remote code execution")),
+    (("remote code execution", "execute arbitrary code", "code execution",
+      "command injection", "os command", "use-after-free", "out-of-bounds write",
+      "buffer overflow", "memory corruption"),
+     ("Chiếm quyền chạy mã từ xa", "Remote code execution")),
+    (("authentication bypass", "improper authentication", "missing authentication",
+      "improper restriction of authentication attempts"),
+     ("Vượt qua đăng nhập", "Authentication bypass")),
+    (("hard-coded credential", "hardcoded credential", "use of hard-coded"),
+     ("Mật khẩu cài sẵn trong sản phẩm", "Hard-coded credentials")),
+    (("privilege escalation", "improper privilege"),
+     ("Leo thang đặc quyền", "Privilege escalation")),
+    (("sql injection", "data query logic", "query logic"),
+     ("Chèn mã vào truy vấn dữ liệu", "Query injection")),
+    (("cross-site scripting", "cross site scripting", " xss"),
+     ("Chèn mã độc vào trang web", "Cross-site scripting")),
+    (("path traversal", "directory traversal", "pathname to a restricted directory",
+      "improper limitation of a pathname"),
+     ("Đọc file ngoài ý muốn", "Path traversal")),
+    (("improper encoding or escaping of output", "output encoding"),
+     ("Chèn nội dung độc hại vào đầu ra", "Improper output encoding")),
+    (("server-side request forgery", "ssrf"),
+     ("Lừa máy chủ gọi vào mạng nội bộ", "Server-side request forgery")),
+    (("information disclosure", "exposure of sensitive information", "sensitive information"),
+     ("Lộ thông tin nhạy cảm", "Information disclosure")),
+    (("improper access control", "missing authorization", "broken access control",
+      "improper authorization"),
+     ("Truy cập trái phép dữ liệu/tính năng", "Broken access control")),
+]
+IMPACT_FALLBACK = ("Đang bị khai thác thật", "Actively exploited")
+
+
+def impact_of(name, desc=""):
+    hay = (" " + (name or "") + " " + (desc or "")).lower()
+    for keys, label in IMPACT_RULES:
+        if any(k in hay for k in keys):
+            return label
+    return IMPACT_FALLBACK
+
+
 def main():
     now = datetime.now(timezone.utc)
     aggregates = json.loads((ROOT / "data" / "aggregates.json").read_text(encoding="utf-8"))
     featured = json.loads((ROOT / "data" / "featured.json").read_text(encoding="utf-8"))
+    plain_path = ROOT / "data" / "plain_vi.json"
+    plain = json.loads(plain_path.read_text(encoding="utf-8")) if plain_path.exists() else {}
 
     try:
         kev = fetch_kev()
@@ -60,6 +105,12 @@ def main():
         recent = [v for v in vulns if v.get("dateAdded", "") >= cutoff]
         recent.sort(key=lambda v: v.get("dateAdded", ""), reverse=True)
         for v in recent[:MAX_RECENT]:
+            imp_vi, imp_en = impact_of(v.get("vulnerabilityName", ""), v.get("shortDescription", ""))
+            pv = plain.get(v["cveID"], {})
+            try:
+                due_in = (datetime.strptime(v.get("dueDate", ""), "%Y-%m-%d").date() - now.date()).days
+            except Exception:
+                due_in = None
             kev_recent.append({
                 "cve": v["cveID"],
                 "vendor": v.get("vendorProject", ""),
@@ -67,17 +118,31 @@ def main():
                 "name": v.get("vulnerabilityName", ""),
                 "added": v.get("dateAdded", ""),
                 "due": v.get("dueDate", ""),
+                "due_in_days": due_in,
                 "ransomware": v.get("knownRansomwareCampaignUse", "Unknown"),
                 "desc": (v.get("shortDescription", "") or "")[:240],
+                "impact_vi": pv.get("impact_vi") or imp_vi,
+                "impact_en": imp_en,
+                "plain_vi": pv.get("plain_vi"),
                 "link": cve_link(v["cveID"]),
             })
     else:
         seed = json.loads((ROOT / "data" / "kev_seed.json").read_text(encoding="utf-8"))
         for v in seed:
+            imp_vi, imp_en = impact_of(v["name"], v["desc"])
+            pv = plain.get(v["cve"], {})
+            try:
+                due_in = (datetime.strptime(v["due"], "%Y-%m-%d").date() - now.date()).days
+            except Exception:
+                due_in = None
             kev_recent.append({
                 "cve": v["cve"], "vendor": v["vendor"], "product": v["product"],
                 "name": v["name"], "added": v["added"], "due": v["due"],
+                "due_in_days": due_in,
                 "ransomware": v["ransomware"], "desc": v["desc"][:240],
+                "impact_vi": pv.get("impact_vi") or imp_vi,
+                "impact_en": imp_en,
+                "plain_vi": pv.get("plain_vi"),
                 "link": cve_link(v["cve"]),
             })
 
@@ -85,6 +150,7 @@ def main():
     kev_new_week = sum(1 for v in kev_recent if v["added"] >= week_cutoff)
 
     feed = {
+        "schema": "zeront-feed/2",
         "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "generator": "zeront (by SecuScan)",
         "kev_source": kev_source,
@@ -124,7 +190,7 @@ def main():
         items.append({
             "title": f"{v['cve']} - {v['vendor']} {v['product']}: {v['name']}",
             "link": v["link"],
-            "desc": v["desc"],
+            "desc": (v["plain_vi"] + " " if v.get("plain_vi") else "") + v["desc"],
             "date": v["added"],
         })
     rss_items = []

@@ -94,3 +94,25 @@ Zeront is the public radar of **[SecuScan](https://secuscan.dannyphan.me/)** - r
 ## License
 
 MIT - see [LICENSE](LICENSE).
+
+## Architecture: one feed, three consumers
+
+Zeront is a single daily data pipeline with three consumers:
+
+1. **The radar page** (humans) - renders `feed.json` data with
+   plain-language Vietnamese summaries (`plain_vi`), short impact labels
+   (`impact_vi` / `impact_en`) and urgency derived from the CISA due date.
+2. **The browser extension** - matches the user's own sites against
+   `featured[].match` rules from the same feed and alerts on a hit.
+3. **AI agents** - `feed.json` (schema `zeront-feed/2`), `feed.xml` (RSS)
+   and `llms.txt` describe the whole radar in machine-readable form,
+   including per-flaw impact labels and days-to-deadline (`due_in_days`).
+
+The daily SecuScan scan process writes `data/aggregates.json` (aggregate
+counts only); `tools/build_feed.py` merges it with the live CISA KEV
+catalog and the hand-written plain-language summaries in
+`data/plain_vi.json`, then republishes every surface at once. New KEV
+entries without a hand-written summary fall back to a deterministic
+impact label derived from the vulnerability name - never to invented
+impact figures. Vietnam affected counts exist only for flaws SecuScan
+has actually scanned and verified.
