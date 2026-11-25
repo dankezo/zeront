@@ -4,7 +4,7 @@
  <link>https://secuscan.dannyphan.me/radar/</link>
  <description>New exploited vulnerabilities (CISA KEV), tracked flaws in Vietnam with aggregate impact figures, and fixes. Aggregates only - individual websites are never named.</description>
  <language>vi</language>
- <lastBuildDate>Tue, 24 Nov 2026 10:59:48 +0000</lastBuildDate>
+ <lastBuildDate>Wed, 25 Nov 2026 09:53:24 +0000</lastBuildDate>
   <item>
    <title>[Tracked in Vietnam] CVE-2026-123007 - nginx HTTP/2 - 'nginx2root' privilege escalation</title>
    <link>https://www.cve.org/CVERecord?id=CVE-2026-123007</link>
@@ -25,6 +25,27 @@
    <guid>https://www.cve.org/CVERecord?id=CVE-2026-126187</guid>
    <pubDate>Mon, 23 Nov 2026 00:00:00 +0000</pubDate>
    <description>react-server-dom-webpack / parcel / turbopack on React 19.0.0 before fixes 19.0.9, 19.1.10, 19.2.9, 19.3.1 Fix: Upgrade the react-server-dom-* packages to the fixed release for your React branch. Confirmed affected sites in Vietnam (aggregate): 10.</description>
+  </item>
+  <item>
+   <title>CVE-2026-132224 - Optimizely Web Experimentation: Optimizely Web Experimentation External Control of Critical State Data Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-132224</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-132224</guid>
+   <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Optimizely Web Experimentation contains an external control of critical state data vulnerability in its account signup flow that could allow an attacker to impersonate existing customer users and modify Project JavaScript. Successful exploi</description>
+  </item>
+  <item>
+   <title>CVE-2026-131914 - Idunno AntiCsrf: Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-131914</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-131914</guid>
+   <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Idunno AntiCsrf contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via object injection. The impacted product(s) could be end-of-life (EoL) and/or end-of-servi</description>
+  </item>
+  <item>
+   <title>CVE-2026-132165 - Drupal Core: Drupal Core Remote Code Execution Vulnerability</title>
+   <link>https://www.cve.org/CVERecord?id=CVE-2026-132165</link>
+   <guid>https://www.cve.org/CVERecord?id=CVE-2026-132165</guid>
+   <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+   <description>Drupal Core contains a not failing securely vulnerability that could allow an unauthenticated attacker to take over an existing site or execute arbitrary code via the Drupal installer. Under specific conditions, the attacker can use install</description>
   </item>
   <item>
    <title>CVE-2026-133968 - Project MONAI MONAI Label: Project MONAI MONAI Label Path Traversal Vulnerability</title>
@@ -179,26 +200,5 @@
    <guid>https://www.cve.org/CVERecord?id=CVE-2026-116779</guid>
    <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
    <description>Lỗ hổng nằm ở FreeSWITCH (phần mềm tổng đài điện thoại qua mạng). Kẻ xấu chèn được mã độc để xem trộm cấu hình và thông tin đăng nhập, điều khiển các cuộc gọi tùy ý và chạy lệnh trên hệ thống. SignalWire FreeSwitch contains a code injection vulnerability that permits configuration and credential disclosure, arbitrary call control, and command execution.</description>
-  </item>
-  <item>
-   <title>CVE-2026-123218 - IBM Aspera Faspex: IBM Aspera Faspex Incorrect Authorization Vulnerability</title>
-   <link>https://www.cve.org/CVERecord?id=CVE-2026-123218</link>
-   <guid>https://www.cve.org/CVERecord?id=CVE-2026-123218</guid>
-   <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
-   <description>Lỗ hổng nằm ở IBM Aspera Faspex (phần mềm truyền file tốc độ cao), ở khâu phân quyền người dùng. Người dùng đã đăng nhập gửi một tin nhắn được chế sẵn là vượt qua được bước kiểm tra quyền, tự nâng quyền của mình lên cao hơn mức được phép. IBM Aspera Faspex contains an incorrect authorization vulnerability that could allow an authenticated user to craft a specific message to bypass authorization, causing privilege escalations.</description>
-  </item>
-  <item>
-   <title>CVE-2026-19868 - SonicWall SonicOS SSLVPN: SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability</title>
-   <link>https://www.cve.org/CVERecord?id=CVE-2026-19868</link>
-   <guid>https://www.cve.org/CVERecord?id=CVE-2026-19868</guid>
-   <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
-   <description>Lỗ hổng nằm ở SonicOS SSLVPN (cổng kết nối làm việc từ xa của tường lửa SonicWall): hệ thống chỉ kiểm tra một lớp xác thực duy nhất. Người có thông tin đăng nhập của một cách đăng nhập khác có thể vòng qua lớp kiểm soát đăng nhập tập trung (SAML) của công ty. SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls. Successful exploitation may al</description>
-  </item>
-  <item>
-   <title>CVE-2024-27834 - Apple Multiple Products: Apple Multiple Products Improper Authentication Vulnerability</title>
-   <link>https://www.cve.org/CVERecord?id=CVE-2024-27834</link>
-   <guid>https://www.cve.org/CVERecord?id=CVE-2024-27834</guid>
-   <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
-   <description>Lỗ hổng nằm ở cơ chế xác thực của các hệ điều hành Apple (iOS, macOS, Safari, tvOS, watchOS). Kẻ xấu đã đọc và ghi được dữ liệu trong máy có thể vượt qua một lớp khóa bảo vệ quan trọng của hệ thống (pointer authentication, cơ chế chống giả mạo địa chỉ trong bộ nhớ). Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.</description>
   </item>
 </channel></rss>

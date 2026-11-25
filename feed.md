@@ -1,7 +1,7 @@
 # Zeront - Vulnerability Radar (by SecuScan)
 
-Updated: 2026-11-24T10:59:48Z (UTC). Sources: CISA KEV, FIRST EPSS, SecuScan Vietnam scan aggregates.
-Websites tracked in Vietnam: 61169. KEV catalog total: 1792. New KEV this week: 11. Warnings sent: 808.
+Updated: 2026-11-25T09:53:24Z (UTC). Sources: CISA KEV, FIRST EPSS, SecuScan Vietnam scan aggregates.
+Websites tracked in Vietnam: 61169. KEV catalog total: 1795. New KEV this week: 13. Warnings sent: 808.
 
 ## Tracked in Vietnam (verified affected counts)
 
@@ -21,9 +21,12 @@ Websites tracked in Vietnam: 61169. KEV catalog total: 1792. New KEV this week: 
 
 | CVE | Flaw | Impact | CISA due | EPSS |
 |---|---|---|---|---|
-| [CVE-2026-133968](https://www.cve.org/CVERecord?id=CVE-2026-133968) | Project MONAI MONAI Label - Project MONAI MONAI Label Path Traversal Vulnerability | Remote code execution | 2026-11-26 | 4% |
-| [CVE-2026-134624](https://www.cve.org/CVERecord?id=CVE-2026-134624) | N-able MailAssure - N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability | Server-side request forgery | 2026-11-26 | 0% |
-| [CVE-2026-129448](https://www.cve.org/CVERecord?id=CVE-2026-129448) | Apache Roller - Apache Roller Deserialization of Untrusted Data Vulnerability | Remote code execution | 2026-11-23 | 5% |
+| [CVE-2026-132224](https://www.cve.org/CVERecord?id=CVE-2026-132224) | Optimizely Web Experimentation - Optimizely Web Experimentation External Control of Critical State Data Vulnerability | Actively exploited | 2026-11-27 | 0% |
+| [CVE-2026-131914](https://www.cve.org/CVERecord?id=CVE-2026-131914) | Idunno AntiCsrf - Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability | Remote code execution | 2026-11-27 | 1% |
+| [CVE-2026-132165](https://www.cve.org/CVERecord?id=CVE-2026-132165) | Drupal Core - Drupal Core Remote Code Execution Vulnerability | Remote code execution | 2026-11-27 | - |
+| [CVE-2026-133968](https://www.cve.org/CVERecord?id=CVE-2026-133968) | Project MONAI MONAI Label - Project MONAI MONAI Label Path Traversal Vulnerability | Remote code execution | 2026-11-26 | 50% |
+| [CVE-2026-134624](https://www.cve.org/CVERecord?id=CVE-2026-134624) | N-able MailAssure - N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability | Server-side request forgery | 2026-11-26 | 1% |
+| [CVE-2026-129448](https://www.cve.org/CVERecord?id=CVE-2026-129448) | Apache Roller - Apache Roller Deserialization of Untrusted Data Vulnerability | Remote code execution | 2026-11-23 | 40% |
 | [CVE-2026-123890](https://www.cve.org/CVERecord?id=CVE-2026-123890) | Broadcom VMware vCenter - VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability | Authentication bypass | 2026-11-23 | 4% |
 | [CVE-2025-42884](https://www.cve.org/CVERecord?id=CVE-2025-42884) | SAP NetWeaver - SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability | Query injection | 2026-11-23 | 1% |
 | [CVE-2026-76466](https://www.cve.org/CVERecord?id=CVE-2026-76466) | Cisco Expressway Series - Cisco Expressway Series Use of Hard-coded Credentials Vulnerability | Hard-coded credentials | 2026-11-23 | 2% |
@@ -43,9 +46,6 @@ Websites tracked in Vietnam: 61169. KEV catalog total: 1792. New KEV this week: 
 | [CVE-2026-102895](https://www.cve.org/CVERecord?id=CVE-2026-102895) | GPUStack GPUStack - GPUStack Improper Authentication Vulnerability | Remote code execution | 2026-11-12 | 19% |
 | [CVE-2026-123158](https://www.cve.org/CVERecord?id=CVE-2026-123158) | OpenBSD OpenSSH - OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability | Authentication bypass | 2026-11-12 | 96% |
 | [CVE-2026-116779](https://www.cve.org/CVERecord?id=CVE-2026-116779) | SignalWire FreeSwitch - SignalWire FreeSwitch Code Injection Vulnerability | Actively exploited | 2026-11-12 | 44% |
-| [CVE-2026-123218](https://www.cve.org/CVERecord?id=CVE-2026-123218) | IBM Aspera Faspex - IBM Aspera Faspex Incorrect Authorization Vulnerability | Privilege escalation | 2026-11-12 | 1% |
-| [CVE-2026-19868](https://www.cve.org/CVERecord?id=CVE-2026-19868) | SonicWall SonicOS SSLVPN - SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability | Actively exploited | 2026-11-20 | 8% |
-| [CVE-2024-27834](https://www.cve.org/CVERecord?id=CVE-2024-27834) | Apple Multiple Products - Apple Multiple Products Improper Authentication Vulnerability | Authentication bypass | 2026-11-18 | 2% |
 
 ## Watchlist - high exploitation probability, not in KEV yet
 

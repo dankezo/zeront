@@ -1,16 +1,16 @@
 {
  "schema": "zeront-feed/2",
- "generated_at": "2026-11-24T10:59:48Z",
+ "generated_at": "2026-11-25T09:53:24Z",
  "generator": "zeront (by SecuScan)",
  "kev_source": "live",
- "kev_catalog_released": "2026-11-23T19:43:55.7979Z",
+ "kev_catalog_released": "2026-11-24T17:47:46.199Z",
  "data_policy": "Aggregates only. Individual websites are never named or scored in public data.",
  "stats": {
   "sites_tracked_vn": 61169,
   "warnings_sent": 808,
   "replies_received": 76,
-  "kev_total": 1792,
-  "kev_new_this_week": 11,
+  "kev_total": 1795,
+  "kev_new_this_week": 13,
   "aggregates_updated": "2026-11-23"
  },
  "featured": [
@@ -82,21 +82,72 @@
  ],
  "kev_recent": [
   {
+   "cve": "CVE-2026-132224",
+   "vendor": "Optimizely",
+   "product": "Web Experimentation",
+   "name": "Optimizely Web Experimentation External Control of Critical State Data Vulnerability",
+   "added": "2026-11-24",
+   "due": "2026-11-27",
+   "due_in_days": 2,
+   "ransomware": "Unknown",
+   "desc": "Optimizely Web Experimentation contains an external control of critical state data vulnerability in its account signup flow that could allow an attacker to impersonate existing customer users and modify Project JavaScript. Successful exploi",
+   "impact_vi": "Đang bị khai thác thật",
+   "impact_en": "Actively exploited",
+   "plain_vi": null,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-132224",
+   "epss": 0.0041,
+   "epss_pct": 35.8
+  },
+  {
+   "cve": "CVE-2026-131914",
+   "vendor": "Idunno",
+   "product": "AntiCsrf",
+   "name": "Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability",
+   "added": "2026-11-24",
+   "due": "2026-11-27",
+   "due_in_days": 2,
+   "ransomware": "Unknown",
+   "desc": "Idunno AntiCsrf contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via object injection. The impacted product(s) could be end-of-life (EoL) and/or end-of-servi",
+   "impact_vi": "Chiếm quyền chạy mã từ xa",
+   "impact_en": "Remote code execution",
+   "plain_vi": null,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-131914",
+   "epss": 0.0061,
+   "epss_pct": 50.2
+  },
+  {
+   "cve": "CVE-2026-132165",
+   "vendor": "Drupal",
+   "product": "Core",
+   "name": "Drupal Core Remote Code Execution Vulnerability",
+   "added": "2026-11-24",
+   "due": "2026-11-27",
+   "due_in_days": 2,
+   "ransomware": "Unknown",
+   "desc": "Drupal Core contains a not failing securely vulnerability that could allow an unauthenticated attacker to take over an existing site or execute arbitrary code via the Drupal installer. Under specific conditions, the attacker can use install",
+   "impact_vi": "Chiếm quyền chạy mã từ xa",
+   "impact_en": "Remote code execution",
+   "plain_vi": null,
+   "link": "https://www.cve.org/CVERecord?id=CVE-2026-132165",
+   "epss": null,
+   "epss_pct": null
+  },
+  {
    "cve": "CVE-2026-133968",
    "vendor": "Project MONAI",
    "product": "MONAI Label",
    "name": "Project MONAI MONAI Label Path Traversal Vulnerability",
    "added": "2026-11-23",
    "due": "2026-11-26",
-   "due_in_days": 2,
+   "due_in_days": 1,
    "ransomware": "Unknown",
    "desc": "Project MONAI MONAI Label contains a path traversal vulnerability that allows an unauthenticated remote attacker to write arbitrary files outside the intended datastore directory, potentially resulting in remote code execution.",
    "impact_vi": "Chiếm quyền chạy mã từ xa",
    "impact_en": "Remote code execution",
    "plain_vi": null,
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-133968",
-   "epss": 0.0366,
-   "epss_pct": 89.9
+   "epss": 0.498,
+   "epss_pct": 98.9
   },
   {
    "cve": "CVE-2026-134624",
@@ -105,15 +156,15 @@
    "name": "N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability",
    "added": "2026-11-23",
    "due": "2026-11-26",
-   "due_in_days": 2,
+   "due_in_days": 1,
    "ransomware": "Unknown",
    "desc": "N-able MailAssure (SpamExperts) contains a server-side request forgery vulnerability in the LDAP synchronization connection check that allows an authenticated API user to connect to arbitrary internal hosts and ports, determine which are re",
    "impact_vi": "Lừa máy chủ gọi vào mạng nội bộ",
    "impact_en": "Server-side request forgery",
    "plain_vi": null,
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-134624",
-   "epss": 0.0035,
-   "epss_pct": 29.7
+   "epss": 0.0062,
+   "epss_pct": 50.3
   },
   {
    "cve": "CVE-2026-129448",
@@ -122,15 +173,15 @@
    "name": "Apache Roller Deserialization of Untrusted Data Vulnerability",
    "added": "2026-11-20",
    "due": "2026-11-23",
-   "due_in_days": -1,
+   "due_in_days": -2,
    "ransomware": "Unknown",
    "desc": "Apache Roller contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via the XML-RPC endpoint, which accepts and deserializes vendor extension types before authent",
    "impact_vi": "Chiếm quyền điều khiển máy chủ",
    "impact_en": "Remote code execution",
    "plain_vi": "Lỗ hổng nằm ở Apache Roller (phần mềm làm trang blog/tin tức), tại cổng nhận dữ liệu XML-RPC. Kẻ xấu không cần đăng nhập, chỉ cần gửi dữ liệu giả mạo là chạy được lệnh tùy ý trên máy chủ.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-129448",
-   "epss": 0.0546,
-   "epss_pct": 92.9
+   "epss": 0.4007,
+   "epss_pct": 98.7
   },
   {
    "cve": "CVE-2026-123890",
@@ -139,7 +190,7 @@
    "name": "VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
    "added": "2026-11-20",
    "due": "2026-11-23",
-   "due_in_days": -1,
+   "due_in_days": -2,
    "ransomware": "Unknown",
    "desc": "Broadcom VMware vCenter contains an authentication bypass using an alternate path or channel vulnerability in the VMware Directory Service that allows an unauthenticated attacker with network access to vCenter to bypass authentication and g",
    "impact_vi": "Vượt qua màn hình đăng nhập",
@@ -147,7 +198,7 @@
    "plain_vi": "Lỗ hổng nằm ở VMware vCenter (phần mềm quản lý các máy chủ ảo), ở khâu kiểm tra đăng nhập. Kẻ xấu chỉ cần kết nối được vào mạng là qua mặt được bước đăng nhập, vào hệ thống mà không cần mật khẩu.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-123890",
    "epss": 0.0353,
-   "epss_pct": 89.5
+   "epss_pct": 89.4
   },
   {
    "cve": "CVE-2025-42884",
@@ -156,7 +207,7 @@
    "name": "SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
    "added": "2026-11-20",
    "due": "2026-11-23",
-   "due_in_days": -1,
+   "due_in_days": -2,
    "ransomware": "Unknown",
    "desc": "SAP NetWeaver Enterprise Portal contains an improper neutralization of special elements in data query logic vulnerability that allows an unauthenticated attacker to disclose or modify server information via injected JNDI environment propert",
    "impact_vi": "Đọc, sửa dữ liệu máy chủ",
@@ -164,7 +215,7 @@
    "plain_vi": "Lỗ hổng nằm ở SAP NetWeaver (phần mềm quản lý doanh nghiệp), ở khâu xử lý câu truy vấn dữ liệu. Kẻ xấu không cần đăng nhập, chèn dữ liệu giả vào câu truy vấn là xem được hoặc sửa đổi thông tin trên máy chủ.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2025-42884",
    "epss": 0.009,
-   "epss_pct": 60.6
+   "epss_pct": 60.5
   },
   {
    "cve": "CVE-2026-76466",
@@ -173,7 +224,7 @@
    "name": "Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
    "added": "2026-11-20",
    "due": "2026-11-23",
-   "due_in_days": -1,
+   "due_in_days": -2,
    "ransomware": "Unknown",
    "desc": "Cisco Expressway Series contains a use of hard-coded credentials vulnerability that allows an unauthenticated, remote attacker with persistent cookies and network access to execute commands as root on a clustered device via the database ser",
    "impact_vi": "Lấy quyền cao nhất thiết bị",
@@ -181,7 +232,7 @@
    "plain_vi": "Thiết bị Cisco Expressway (dùng cho họp và gọi video) bị cài sẵn một thông tin đăng nhập cố định không thay được. Kẻ xấu biết thông tin này và kết nối được vào mạng là chạy được lệnh với quyền cao nhất (root) trên thiết bị trong cụm.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-76466",
    "epss": 0.0219,
-   "epss_pct": 82.9
+   "epss_pct": 82.8
   },
   {
    "cve": "CVE-2024-10441",
@@ -190,7 +241,7 @@
    "name": "Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
    "added": "2026-11-18",
    "due": "2026-11-21",
-   "due_in_days": -3,
+   "due_in_days": -4,
    "ransomware": "Known",
    "desc": "Synology DSM contains an improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) that could allow a remote attacker to execute arbitrary code via unspecified vectors.",
    "impact_vi": "Chạy lệnh từ xa trên máy",
@@ -198,7 +249,7 @@
    "plain_vi": "Lỗ hổng nằm trong phần mềm quản lý ổ lưu trữ mạng Synology, ở một tiến trình chạy nền của hệ thống. Kẻ xấu từ xa gửi dữ liệu giả mạo là chạy được lệnh tùy ý trên thiết bị lưu trữ.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2024-10441",
    "epss": 0.0313,
-   "epss_pct": 88.2
+   "epss_pct": 88.1
   },
   {
    "cve": "CVE-2026-40217",
@@ -207,7 +258,7 @@
    "name": "BerriAI LiteLLM Unprotected Alternate Channel Vulnerability",
    "added": "2026-11-18",
    "due": "2026-12-02",
-   "due_in_days": 8,
+   "due_in_days": 7,
    "ransomware": "Unknown",
    "desc": "BerriAI LiteLLM contains an unprotected alternate channel vulnerability that could allow remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.",
    "impact_vi": "Thực thi lệnh trên máy chủ",
@@ -224,7 +275,7 @@
    "name": "Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
    "added": "2026-11-18",
    "due": "2026-11-21",
-   "due_in_days": -3,
+   "due_in_days": -4,
    "ransomware": "Unknown",
    "desc": "Vanderbilt University Research Electronic Data Capture (REDCap) contains a code injection vulnerability which could allow an unauthenticated attacker to execute arbitrary code on the server. An attacker could exploit this via crafted HTTP r",
    "impact_vi": "Thực thi mã trên máy chủ",
@@ -241,7 +292,7 @@
    "name": "Apache Axis Unsafe Reflection Vulnerability",
    "added": "2026-11-18",
    "due": "2026-11-21",
-   "due_in_days": -3,
+   "due_in_days": -4,
    "ransomware": "Unknown",
    "desc": "Apache Axis contains an unsafe reflection vulnerability that could allow an unauthenticated remote attacker to execute arbitrary code via a crafted SOAP fault message that causes Axis to load and instantiate an attacker-specified class when",
    "impact_vi": "Chạy mã độc từ xa",
@@ -249,7 +300,7 @@
    "plain_vi": "Lỗ hổng nằm ở Apache Axis (thư viện dùng để các hệ thống trao đổi dữ liệu với nhau). Kẻ xấu không cần đăng nhập, gửi một tin nhắn lỗi giả mạo là bắt hệ thống nạp và chạy mã theo ý mình.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-90436",
    "epss": 0.0587,
-   "epss_pct": 93.4
+   "epss_pct": 93.3
   },
   {
    "cve": "CVE-2026-115731",
@@ -258,7 +309,7 @@
    "name": "Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
    "added": "2026-11-17",
    "due": "2026-12-01",
-   "due_in_days": 7,
+   "due_in_days": 6,
    "ransomware": "Unknown",
    "desc": "Perforce Puppet Enterprise contains a deserialization of untrusted data vulnerability in Puppet’s report-processing code that allows a client with any CA-signed agent certificate to execute arbitrary code on the Puppet Server as the service",
    "impact_vi": "Chiếm máy chủ quản lý chính",
@@ -275,15 +326,15 @@
    "name": "UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
    "added": "2026-11-13",
    "due": "2026-11-16",
-   "due_in_days": -8,
+   "due_in_days": -9,
    "ransomware": "Unknown",
    "desc": "UnrealIRCd UnrealIRCd contains an improper neutralization of delimiters vulnerability that allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server authority.",
    "impact_vi": "Chèn lệnh với quyền máy chủ",
    "impact_en": "Actively exploited",
    "plain_vi": "Lỗ hổng nằm ở UnrealIRCd (phần mềm chạy phòng chat IRC). Khi mạng chat có từ hai máy chủ liên kết trở lên, người dùng bình thường cũng chèn được lệnh vốn chỉ dành cho máy chủ, và lệnh đó được chạy với quyền của máy chủ.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-114713",
-   "epss": 0.0115,
-   "epss_pct": 67.7
+   "epss": 0.0135,
+   "epss_pct": 72.1
   },
   {
    "cve": "CVE-2026-123039",
@@ -292,7 +343,7 @@
    "name": "Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
    "added": "2026-11-13",
    "due": "2026-11-16",
-   "due_in_days": -8,
+   "due_in_days": -9,
    "ransomware": "Unknown",
    "desc": "Check Point Firewall, Multi-Domain Security Management Server, Scalable Platforms, Security Gateway, and Security Management Server contain an incorrect permissions assignment for critical resources vulnerability when the Gaia OS DynamicCLI",
    "impact_vi": "Vào phần không được phép",
@@ -300,7 +351,7 @@
    "plain_vi": "Lỗ hổng nằm ở nhiều sản phẩm tường lửa và quản lý bảo mật của Check Point: hệ thống cấp quyền sai cho những phần quan trọng vốn phải được bảo vệ chặt. Nhờ đó, kẻ xấu có thể chạm tới những phần mà bình thường không được phép truy cập.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-123039",
    "epss": 0.0327,
-   "epss_pct": 88.7
+   "epss_pct": 88.6
   },
   {
    "cve": "CVE-2026-124194",
@@ -309,7 +360,7 @@
    "name": "Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-24",
-   "due_in_days": 0,
+   "due_in_days": -1,
    "ransomware": "Unknown",
    "desc": "Microsoft Office Outlook contains a missing user interaction for potentially unsafe action vulnerability that allows an unauthorized attacker to perform spoofing over a network.",
    "impact_vi": "Giả mạo danh tính qua mạng",
@@ -317,7 +368,7 @@
    "plain_vi": "Lỗ hổng nằm ở Microsoft Outlook (phần mềm đọc email): một hành động nguy hiểm được thực hiện mà không hề hỏi ý kiến người dùng trước. Kẻ xấu lợi dụng điều này để giả mạo danh tính qua mạng.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-124194",
    "epss": 0.2489,
-   "epss_pct": 98.0
+   "epss_pct": 97.9
   },
   {
    "cve": "CVE-2026-111793",
@@ -326,7 +377,7 @@
    "name": "Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-24",
-   "due_in_days": 0,
+   "due_in_days": -1,
    "ransomware": "Unknown",
    "desc": "Openwave Messaging Limited Webtop Media Transcoder contains an incorrect resource transfer between spheres vulnerability that may allow an authenticated user to process and convert unintended document types if bypassing the Webmail experien",
    "impact_vi": "Chuyển đổi loại tài liệu cấm",
@@ -334,7 +385,7 @@
    "plain_vi": "Lỗ hổng nằm ở công cụ chuyển đổi file media đi kèm hộp thư webmail của Openwave. Người dùng đã đăng nhập, nếu đi đường vòng ngoài giao diện webmail, có thể bắt hệ thống xử lý và chuyển đổi cả những loại tài liệu vốn không được phép.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-111793",
    "epss": 0.0117,
-   "epss_pct": 68.2
+   "epss_pct": 68.1
   },
   {
    "cve": "CVE-2026-20320",
@@ -343,7 +394,7 @@
    "name": "Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-24",
-   "due_in_days": 0,
+   "due_in_days": -1,
    "ransomware": "Unknown",
    "desc": "Cisco BroadWorks contains an improper restriction of XML external entity reference vulnerability that could allow an unauthenticated, remote attacker to read sensitive configuration information on an affected system.",
    "impact_vi": "Đọc trộm thông tin cấu hình",
@@ -351,7 +402,7 @@
    "plain_vi": "Lỗ hổng nằm ở Cisco BroadWorks (hệ thống tổng đài điện thoại qua mạng), ở khâu đọc dữ liệu XML. Kẻ xấu không cần đăng nhập, gửi file XML giả mạo là đọc được thông tin cấu hình nhạy cảm của hệ thống.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-20320",
    "epss": 0.0168,
-   "epss_pct": 77.6
+   "epss_pct": 77.4
   },
   {
    "cve": "CVE-2026-111560",
@@ -360,7 +411,7 @@
    "name": "Barracuda Networks Multiple Products OS Command Injection Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-13",
-   "due_in_days": -11,
+   "due_in_days": -12,
    "ransomware": "Unknown",
    "desc": "Barracuda Networks Email Security Gateway (ESG), Load Balancer, Application Delivery Controller (ADC), Message Archiver (BMA), WAF Control Center (WCC), Web Application Firewall (WAF), and Web Security Gateway (WSG) contain an OS command in",
    "impact_vi": "Chèn và chạy lệnh hệ thống",
@@ -377,7 +428,7 @@
    "name": "Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-13",
-   "due_in_days": -11,
+   "due_in_days": -12,
    "ransomware": "Unknown",
    "desc": "Barracuda Networks Email Security Gateway (ESG) contains an authentication bypass using an alternate path or channel that could allow an unauthenticated remote attacker to invoke a configuration-import function and restore a crafted, compat",
    "impact_vi": "Qua mặt đăng nhập trái phép",
@@ -394,7 +445,7 @@
    "name": "Google Chromium Use-After-Free Vulnerability",
    "added": "2026-11-10",
    "due": "2026-11-24",
-   "due_in_days": 0,
+   "due_in_days": -1,
    "ransomware": "Unknown",
    "desc": "Google Chromium contains a use-after-free vulnerability in the XML component that could allow a remote attacker to execute arbitrary code inside the sandbox via a specially crafted webpage. This vulnerability could affect multiple web brows",
    "impact_vi": "Chạy mã độc qua trang web",
@@ -402,7 +453,7 @@
    "plain_vi": "Lỗ hổng nằm ở nhân trình duyệt Chromium (nền của Chrome và nhiều trình duyệt khác), ở phần xử lý XML. Kẻ xấu tạo một trang web được chế sẵn, ai mở trang đó có thể bị chạy mã độc ngay bên trong trình duyệt.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-125350",
    "epss": 0.068,
-   "epss_pct": 94.2
+   "epss_pct": 94.1
   },
   {
    "cve": "CVE-2026-102895",
@@ -411,7 +462,7 @@
    "name": "GPUStack Improper Authentication Vulnerability",
    "added": "2026-11-09",
    "due": "2026-11-12",
-   "due_in_days": -12,
+   "due_in_days": -13,
    "ransomware": "Unknown",
    "desc": "GPUStack contains an improper authentication vulnerability which could allow unauthenticated administrative access, including user and model changes, persistent administrator API-key creation, disclosure of worker and cloud-provider secrets",
    "impact_vi": "Lấy quyền quản trị trái phép",
@@ -419,7 +470,7 @@
    "plain_vi": "Lỗ hổng nằm ở GPUStack (phần mềm quản lý cụm máy chạy AI), ở khâu kiểm tra đăng nhập. Kẻ xấu không cần tài khoản vẫn vào được với quyền quản trị: sửa người dùng và mô hình AI, tự tạo khóa truy cập quản trị dùng lâu dài, và xem được bí mật của các máy con lẫn của nhà cung cấp đám mây.",
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-102895",
    "epss": 0.1879,
-   "epss_pct": 97.4
+   "epss_pct": 97.3
   },
   {
    "cve": "CVE-2026-123158",
@@ -428,7 +479,7 @@
    "name": "OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability",
    "added": "2026-11-09",
    "due": "2026-11-12",
-   "due_in_days": -12,
+   "due_in_days": -13,
    "ransomware": "Unknown",
    "desc": "OpenBSD OpenSSH on Linux contains an unexpected status code or return value vulnerability that could allow for authentication bypass.",
    "impact_vi": "Vượt qua kiểm tra đăng nhập",
@@ -445,7 +496,7 @@
    "name": "SignalWire FreeSwitch Code Injection Vulnerability",
    "added": "2026-11-09",
    "due": "2026-11-12",
-   "due_in_days": -12,
+   "due_in_days": -13,
    "ransomware": "Unknown",
    "desc": "SignalWire FreeSwitch contains a code injection vulnerability that permits configuration and credential disclosure, arbitrary call control, and command execution.",
    "impact_vi": "Chèn mã, điều khiển cuộc gọi",
@@ -454,57 +505,6 @@
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-116779",
    "epss": 0.4411,
    "epss_pct": 98.8
-  },
-  {
-   "cve": "CVE-2026-123218",
-   "vendor": "IBM",
-   "product": "Aspera Faspex",
-   "name": "IBM Aspera Faspex Incorrect Authorization Vulnerability",
-   "added": "2026-11-09",
-   "due": "2026-11-12",
-   "due_in_days": -12,
-   "ransomware": "Unknown",
-   "desc": "IBM Aspera Faspex contains an incorrect authorization vulnerability that could allow an authenticated user to craft a specific message to bypass authorization, causing privilege escalations.",
-   "impact_vi": "Leo thang đặc quyền trái phép",
-   "impact_en": "Privilege escalation",
-   "plain_vi": "Lỗ hổng nằm ở IBM Aspera Faspex (phần mềm truyền file tốc độ cao), ở khâu phân quyền người dùng. Người dùng đã đăng nhập gửi một tin nhắn được chế sẵn là vượt qua được bước kiểm tra quyền, tự nâng quyền của mình lên cao hơn mức được phép.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-123218",
-   "epss": 0.0101,
-   "epss_pct": 64.1
-  },
-  {
-   "cve": "CVE-2026-19868",
-   "vendor": "SonicWall",
-   "product": "SonicOS SSLVPN",
-   "name": "SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
-   "added": "2026-11-06",
-   "due": "2026-11-20",
-   "due_in_days": -4,
-   "ransomware": "Unknown",
-   "desc": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls. Successful exploitation may al",
-   "impact_vi": "Vòng qua kiểm soát đăng nhập",
-   "impact_en": "Actively exploited",
-   "plain_vi": "Lỗ hổng nằm ở SonicOS SSLVPN (cổng kết nối làm việc từ xa của tường lửa SonicWall): hệ thống chỉ kiểm tra một lớp xác thực duy nhất. Người có thông tin đăng nhập của một cách đăng nhập khác có thể vòng qua lớp kiểm soát đăng nhập tập trung (SAML) của công ty.",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2026-19868",
-   "epss": 0.0804,
-   "epss_pct": 94.9
-  },
-  {
-   "cve": "CVE-2024-27834",
-   "vendor": "Apple",
-   "product": "Multiple Products",
-   "name": "Apple Multiple Products Improper Authentication Vulnerability",
-   "added": "2026-11-04",
-   "due": "2026-11-18",
-   "due_in_days": -6,
-   "ransomware": "Unknown",
-   "desc": "Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.",
-   "impact_vi": "Vượt khóa bảo vệ hệ thống",
-   "impact_en": "Authentication bypass",
-   "plain_vi": "Lỗ hổng nằm ở cơ chế xác thực của các hệ điều hành Apple (iOS, macOS, Safari, tvOS, watchOS). Kẻ xấu đã đọc và ghi được dữ liệu trong máy có thể vượt qua một lớp khóa bảo vệ quan trọng của hệ thống (pointer authentication, cơ chế chống giả mạo địa chỉ trong bộ nhớ).",
-   "link": "https://www.cve.org/CVERecord?id=CVE-2024-27834",
-   "epss": 0.0156,
-   "epss_pct": 75.9
   }
  ],
  "watchlist": [
@@ -538,7 +538,7 @@
    "product": "Linux",
    "published": "2026-05-11",
    "epss": 0.9412,
-   "epss_pct": 99.9,
+   "epss_pct": 99.8,
    "link": "https://www.cve.org/CVERecord?id=CVE-2026-43500"
   },
   {
